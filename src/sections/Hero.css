@@ -1,0 +1,473 @@
+.hero-section {
+  padding-top: calc(var(--navbar-height) + var(--space-12));
+  padding-bottom: var(--space-16);
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: var(--space-12);
+  width: 100%;
+}
+
+/* ==========================================================================
+   LEFT SIDE: TEXT HIERARCHY & ACTIONS
+   ========================================================================== */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 620px;
+}
+
+/* Top Status Badge */
+.hero-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  max-width: 100%;
+}
+
+.status-indicator {
+  position: relative;
+  display: inline-flex;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--status-success);
+}
+
+.status-ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: var(--status-success);
+  animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  opacity: 0.75;
+}
+
+@keyframes ping {
+
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.status-text {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Greeting Text */
+.hero-greeting {
+  font-size: var(--font-size-sm);
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-1);
+  display: inline-block;
+}
+
+/* Main Name Title */
+.hero-name {
+  font-size: clamp(2.75rem, 5.5vw, 4.25rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  margin-bottom: var(--space-2);
+  word-break: break-word;
+}
+
+.text-gradient {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Primary Subtitle / Role */
+.hero-subtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+  font-weight: 600;
+  color: var(--accent-secondary);
+  margin-bottom: var(--space-1);
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+
+/* University Line */
+.hero-institution {
+  font-size: var(--font-size-base);
+  color: var(--text-muted);
+  font-weight: var(--font-weight-normal);
+  margin-bottom: var(--space-5);
+  line-height: 1.4;
+}
+
+/* Short Bio (Max 2 clean lines) */
+.hero-summary {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 520px;
+  margin-bottom: var(--space-8);
+}
+
+/* 2 Main Action Buttons */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Social Links */
+.hero-social-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.social-label {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+  color: var(--text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: var(--space-1);
+}
+
+.hero-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: var(--font-size-xs);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.hero-social-btn:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   RIGHT SIDE: BLUE BRUSH STROKE & PHOTO SLOT (NO CIRCLE, NO BLACK BOX)
+   ========================================================================== */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-art-stage {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Ambient Subtle Glow */
+.hero-art-glow {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      rgba(56, 189, 248, 0.28) 0%,
+      rgba(99, 102, 241, 0.22) 45%,
+      transparent 70%);
+  filter: blur(45px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Subtle Vector Contour Lines in Upper Right */
+.hero-contour-lines {
+  position: absolute;
+  top: -15px;
+  right: -20px;
+  width: 300px;
+  height: 220px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+/* 100% Transparent Blue Brush Stroke Graphic (NO black box!) */
+.hero-brush-backdrop {
+  position: absolute;
+  top: 6%;
+  left: -16%;
+  width: 132%;
+  height: 92%;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-brush-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 30px rgba(56, 189, 248, 0.45));
+  transform: rotate(-1deg) scale(1.08);
+  display: block;
+}
+
+/* Photo Slot */
+.hero-photo-slot {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.hero-photo-active {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.hero-person-cutout {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.65));
+  mask-image: linear-gradient(to bottom, black 86%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 86%, transparent 100%);
+  transition: transform var(--transition-normal);
+}
+
+.hero-art-stage:hover .hero-person-cutout {
+  transform: scale(1.02);
+}
+
+/* Change Photo Button on Hover */
+.photo-change-btn {
+  position: absolute;
+  bottom: 15px;
+  padding: 5px 14px;
+  background: rgba(13, 19, 34, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  color: var(--accent-secondary);
+  font-family: var(--font-mono);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all var(--transition-fast);
+  z-index: 5;
+}
+
+.photo-change-btn:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--accent-secondary);
+  color: #ffffff;
+}
+
+.hero-photo-active:hover .photo-change-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Photo Picker (When user hasn't added a photo yet) */
+.hero-photo-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 290px;
+  border-radius: var(--radius-2xl);
+  border: 2px dashed rgba(56, 189, 248, 0.45);
+  background: rgba(13, 19, 34, 0.65);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-bottom: var(--space-4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.hero-photo-picker:hover {
+  border-color: var(--accent-secondary);
+  background: rgba(13, 19, 34, 0.85);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(56, 189, 248, 0.2);
+}
+
+.picker-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-4);
+}
+
+.picker-monogram {
+  font-family: var(--font-mono);
+  font-size: 3.25rem;
+  font-weight: 800;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-2);
+}
+
+.picker-title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.picker-hint {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  color: var(--accent-secondary);
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT & OVERFLOW PROTECTION
+   ========================================================================== */
+@media (max-width: 960px) {
+  .hero-section {
+    min-height: auto;
+    padding-top: calc(var(--navbar-height) + var(--space-8));
+    padding-bottom: var(--space-12);
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    text-align: left;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-visual {
+    order: -1;
+    justify-content: center;
+  }
+
+  .hero-art-stage {
+    max-width: 360px;
+    min-height: 400px;
+  }
+
+  .hero-photo-slot {
+    max-width: 310px;
+  }
+
+  .hero-person-cutout {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 580px) {
+  .hero-section {
+    padding-top: calc(var(--navbar-height) + var(--space-6));
+    padding-bottom: var(--space-10);
+  }
+
+  .hero-name {
+    font-size: 2.35rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+  }
+
+  .hero-institution {
+    font-size: var(--font-size-sm);
+  }
+
+  .hero-summary {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-6);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-art-stage {
+    max-width: 290px;
+    min-height: 340px;
+  }
+
+  .hero-photo-slot {
+    max-width: 260px;
+  }
+
+  .hero-person-cutout {
+    max-height: 340px;
+  }
+}

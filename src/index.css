@@ -1,0 +1,10 @@
+/* Import Design Tokens and Global Styles */
+@import './styles/tokens.css';
+@import './styles/globals.css';
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
