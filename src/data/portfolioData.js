@@ -40,35 +40,38 @@ export const navLinks = [
 ];
 
 export const aboutData = {
-  lead: "Bridging computational engineering with industrial quality standards.",
-  paragraphs: [
-    "I am an undergraduate reading for a BSc (Hons) in Industrial Information Technology at Uva Wellassa University of Sri Lanka. My degree blends core software engineering disciplines with industrial system analysis, giving me a strong perspective on how high-quality technology solutions power modern organizations.",
-    "My primary career interests center on Software Development and Quality Assurance (QA). I am enthusiastic about crafting clean, maintainable front-end and back-end code, as well as designing structured test cases, validating APIs, and ensuring software releases are robust, stable, and bug-free.",
-    "I am dedicated to continuous self-improvement, clean code practices, and collaboration. I am actively seeking internship opportunities where I can contribute to real-world engineering teams while refining my developer and QA capabilities."
+  title: "ABOUT ME",
+  headline: "Engineering Mindset & Quality-Driven Delivery",
+  intro:
+    "Industrial Information Technology undergraduate focused on Software Development and Quality Assurance (QA). Passionate about building reliable web applications and applying disciplined software testing methodologies.",
+  bullets: [
+    "BSc (Hons) in Industrial IT - Uva Wellassa University",
+    "Web Application Development (Clean Code)",
+    "QA Testing & API Validation"
   ],
   pillars: [
     {
       id: "software-dev",
       title: "Software Development",
-      description: "Developing modern, component-driven web interfaces and backend services with emphasis on clean syntax, maintainability, and responsiveness.",
+      description: "Building responsive front-ends and clean backend services.",
       icon: "code"
     },
     {
       id: "quality-assurance",
       title: "Quality Assurance (QA)",
-      description: "Designing structured test cases, conducting manual and exploratory testing, validating API endpoints, and tracking defect lifecycles.",
+      description: "Designing test cases, API testing, and defect tracking.",
       icon: "shieldCheck"
     },
     {
       id: "industrial-it",
       title: "Industrial IT Mindset",
-      description: "Approaching technical challenges with systematic thinking, business process awareness, and strict adherence to software quality standards.",
+      description: "Applying process awareness and system analysis to software.",
       icon: "layers"
     },
     {
       id: "analytical-problem-solving",
       title: "Analytical Problem Solving",
-      description: "Breaking down complex system requirements into manageable modules with disciplined debugging and verification routines.",
+      description: "Breaking down complex requirements into testable code.",
       icon: "terminal"
     }
   ]

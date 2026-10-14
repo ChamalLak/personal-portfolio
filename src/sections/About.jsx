@@ -1,12 +1,11 @@
 import React from 'react';
 import SectionHeader from '../components/SectionHeader';
-import { aboutData, personalData } from '../data/portfolioData';
+import { aboutData } from '../data/portfolioData';
 import { 
   CodeIcon, 
   ShieldCheckIcon, 
   LayersIcon, 
   TerminalIcon, 
-  GraduationCapIcon,
   CheckIcon
 } from '../components/Icons';
 import './About.css';
@@ -15,15 +14,15 @@ export default function About() {
   const getPillarIcon = (iconName) => {
     switch (iconName) {
       case 'code':
-        return <CodeIcon size={24} />;
+        return <CodeIcon size={22} />;
       case 'shieldCheck':
-        return <ShieldCheckIcon size={24} />;
+        return <ShieldCheckIcon size={22} />;
       case 'layers':
-        return <LayersIcon size={24} />;
+        return <LayersIcon size={22} />;
       case 'terminal':
-        return <TerminalIcon size={24} />;
+        return <TerminalIcon size={22} />;
       default:
-        return <CheckIcon size={24} />;
+        return <CheckIcon size={22} />;
     }
   };
 
@@ -31,45 +30,30 @@ export default function About() {
     <section id="about" className="section-wrapper about-section" aria-label="About Chamal Lakshan">
       <div className="container">
         <SectionHeader
-          badge="ABOUT ME"
-          title="Engineering Mindset & Quality-Driven Delivery"
-          subtitle="A dedicated undergraduate merging software development principles with industrial system disciplines."
+          badge={aboutData.title}
+          title={aboutData.headline}
         />
 
         <div className="about-grid">
-          {/* Left Bio Card */}
+          {/* Left Column: Clean Minimal Summary & Bullets */}
           <div className="about-bio-card glass-panel">
-            <div className="about-education-callout">
-              <div className="callout-icon-wrap" aria-hidden="true">
-                <GraduationCapIcon size={24} />
-              </div>
-              <div className="callout-text">
-                <span className="callout-degree">BSc (Hons) in Industrial Information Technology</span>
-                <span className="callout-uni">{personalData.university}</span>
-              </div>
-            </div>
+            <p className="about-intro-text">
+              {aboutData.intro}
+            </p>
 
-            <div className="about-text-content">
-              {aboutData.paragraphs.map((p, idx) => (
-                <p key={idx} className="about-paragraph">
-                  {p}
-                </p>
+            <ul className="about-bullets-list">
+              {aboutData.bullets.map((bullet, idx) => (
+                <li key={idx} className="about-bullet-item">
+                  <span className="about-bullet-icon" aria-hidden="true">
+                    <CheckIcon size={14} />
+                  </span>
+                  <span className="about-bullet-text">{bullet}</span>
+                </li>
               ))}
-            </div>
-
-            <div className="about-quick-specs">
-              <div className="spec-item">
-                <span className="spec-label">Target Roles</span>
-                <span className="spec-val">Software Engineer Intern / QA Intern</span>
-              </div>
-              <div className="spec-item">
-                <span className="spec-label">Location</span>
-                <span className="spec-val">Sri Lanka (Available for On-site / Remote)</span>
-              </div>
-            </div>
+            </ul>
           </div>
 
-          {/* Right Core Pillars */}
+          {/* Right Column: 4 Focus Cards (2x2 Grid) */}
           <div className="about-pillars-grid">
             {aboutData.pillars.map((pillar) => (
               <div key={pillar.id} className="pillar-card glass-panel">
@@ -86,3 +70,4 @@ export default function About() {
     </section>
   );
 }
+

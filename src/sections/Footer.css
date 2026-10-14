@@ -22,37 +22,32 @@
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-4);
+  flex-wrap: wrap;
 }
 
-.footer-monogram {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
-  background: var(--accent-gradient);
-  color: #ffffff;
-  font-family: var(--font-mono);
-  font-weight: var(--font-weight-bold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--font-size-sm);
+.footer-brand-logo {
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(56, 189, 248, 0.2));
+  transition: transform var(--transition-fast);
 }
 
-.footer-brand-text {
-  display: flex;
-  flex-direction: column;
+.footer-brand-logo:hover {
+  transform: scale(1.04);
 }
 
-.footer-name {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-  color: var(--text-primary);
+[data-theme='light'] .footer-brand-logo {
+  filter: invert(1) brightness(0.15);
 }
 
 .footer-role {
   font-size: 0.75rem;
   color: var(--text-muted);
+  border-left: 1px solid var(--border-medium);
+  padding-left: var(--space-3);
 }
 
 .footer-nav-list {

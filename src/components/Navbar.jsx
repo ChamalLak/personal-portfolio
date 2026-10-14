@@ -75,13 +75,13 @@ export default function Navbar() {
   return (
     <header className={`navbar-header ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-container">
-        {/* Monogram Brand */}
+        {/* Signature Brand Logo */}
         <a href="#" className="navbar-brand" aria-label="Chamal Lakshan Home">
-          <span className="brand-monogram">{personalData.initials}</span>
-          <span className="brand-name">
-            <span className="name-primary">{personalData.name}</span>
-            <span className="name-role">BSc Industrial IT</span>
-          </span>
+          <img
+            src="/logo-signature.png"
+            alt={personalData.name}
+            className="navbar-brand-logo"
+          />
         </a>
 
         {/* Desktop Navigation Links */}

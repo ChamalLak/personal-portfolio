@@ -16,11 +16,12 @@ export default function Footer() {
         {/* Top Footer Row */}
         <div className="footer-top">
           <div className="footer-brand">
-            <span className="footer-monogram">{personalData.initials}</span>
-            <div className="footer-brand-text">
-              <span className="footer-name">{personalData.name}</span>
-              <span className="footer-role">{personalData.headline}</span>
-            </div>
+            <img
+              src="/logo-signature.png"
+              alt={personalData.name}
+              className="footer-brand-logo"
+            />
+            <span className="footer-role">{personalData.headline}</span>
           </div>
 
           {/* Quick Nav Links */}

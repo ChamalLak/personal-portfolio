@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { personalData } from '../data/portfolioData';
 import Button from '../components/Button';
 import {
@@ -11,17 +11,6 @@ import {
 import './Hero.css';
 
 export default function Hero() {
-  const [photoSrc, setPhotoSrc] = useState(personalData.avatarImage);
-
-  // File upload handler allowing user to preview their personal photo instantly
-  const handlePhotoSelect = (e) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const url = URL.createObjectURL(file);
-      setPhotoSrc(url);
-    }
-  };
-
   return (
     <section id="hero" className="hero-section" aria-label="Introduction">
       <div className="container hero-container">
@@ -154,42 +143,15 @@ export default function Hero() {
               />
             </div>
 
-            {/* Photo Slot: Displays uploaded photo or clean interactive placeholder */}
+            {/* Photo Slot: Displays portrait cutout */}
             <div className="hero-photo-slot">
-              {photoSrc ? (
-                <div className="hero-photo-active">
-                  <img
-                    src={photoSrc}
-                    alt={personalData.name}
-                    className="hero-person-cutout"
-                    onError={() => setPhotoSrc(null)}
-                  />
-                  {/* Floating quick change control */}
-                  <label className="photo-change-btn" title="Change photo">
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handlePhotoSelect}
-                      className="hidden-file-input"
-                    />
-                    <span>Change Photo</span>
-                  </label>
-                </div>
-              ) : (
-                <label className="hero-photo-picker" title="Upload your portrait photo">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handlePhotoSelect}
-                    className="hidden-file-input"
-                  />
-                  <div className="picker-card">
-                    <span className="picker-monogram">{personalData.initials}</span>
-                    <span className="picker-title">+ Add Your Photo</span>
-                    <span className="picker-hint">PNG or JPG cutout</span>
-                  </div>
-                </label>
-              )}
+              <div className="hero-photo-active">
+                <img
+                  src={personalData.avatarImage || "/profile.png"}
+                  alt={personalData.name}
+                  className="hero-person-cutout"
+                />
+              </div>
             </div>
           </div>
         </div>
