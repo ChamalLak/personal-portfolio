@@ -9,11 +9,18 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Handle sticky navbar background on scroll
+  // Handle sticky navbar background and scroll progress on scroll
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Calculate scroll progress percentage
+      const totalScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScrollHeight > 0) {
+        setScrollProgress((window.scrollY / totalScrollHeight) * 100);
+      }
 
       // Section spy to highlight active link
       const sections = navLinks.map(link => document.getElementById(link.id));
@@ -182,6 +189,14 @@ export default function Navbar() {
             </Button>
           </div>
         </div>
+      </div>
+
+      {/* Sleek Cyan Top Progress Line */}
+      <div className="navbar-scroll-progress-wrap" aria-hidden="true">
+        <div 
+          className="navbar-scroll-progress-bar" 
+          style={{ width: `${scrollProgress}%` }} 
+        />
       </div>
     </header>
   );

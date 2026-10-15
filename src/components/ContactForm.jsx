@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { MailIcon, CheckIcon } from './Icons';
-import Button from './Button';
+import { MailIcon, CheckIcon, SendIcon } from './Icons';
 import './ContactForm.css';
 
 export default function ContactForm({ recipientEmail }) {
@@ -25,18 +24,18 @@ export default function ContactForm({ recipientEmail }) {
     }
     if (!formData.subject.trim()) errs.subject = 'Please provide a subject.';
     if (!formData.message.trim()) {
-      errs.message = 'Please provide your message.';
-    } else if (formData.message.trim().length < 10) {
-      errs.message = 'Message must be at least 10 characters long.';
+      errs.message = 'Please write your message.';
+    } else if (formData.message.trim().length < 8) {
+      errs.message = 'Message must be at least 8 characters long.';
     }
     return errs;
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
+      setErrors((prev) => ({ ...prev, [name]: '' }));
     }
   };
 
@@ -49,8 +48,6 @@ export default function ContactForm({ recipientEmail }) {
     }
 
     setIsSubmitting(true);
-
-    // Simulate reliable client-side submission & prepare mailto link
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
@@ -69,153 +66,126 @@ export default function ContactForm({ recipientEmail }) {
     `From: ${formData.name} (${formData.email})\n\n${formData.message}`
   )}`;
 
-  return (
-    <div className="contact-form-container glass-panel">
-      {submitted ? (
-        <div className="contact-success-state" role="status" aria-live="polite">
-          <div className="success-icon-wrap">
-            <CheckIcon size={32} />
-          </div>
-          <h3 className="success-title">Message Prepared!</h3>
-          <p className="success-desc">
-            Thank you, <strong>{formData.name}</strong>. Because this is a static client portfolio, you can also launch your local email client directly with this message prefilled.
-          </p>
-          <div className="success-actions">
-            <Button
-              href={mailtoUrl}
-              variant="primary"
-              size="md"
-              icon={<MailIcon size={16} />}
-            >
-              Open in Email App
-            </Button>
-            <Button
-              variant="outline"
-              size="md"
-              onClick={handleReset}
-            >
-              Send Another Note
-            </Button>
-          </div>
+  if (submitted) {
+    return (
+      <div className="contact-success-state" role="status" aria-live="polite">
+        <div className="success-icon-wrap">
+          <CheckIcon size={32} />
         </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="contact-form" noValidate>
-          <div className="form-row">
-            {/* Name Field */}
-            <div className="form-group">
-              <label htmlFor="contact-name" className="form-label">
-                Your Name <span className="required-star">*</span>
-              </label>
-              <input
-                id="contact-name"
-                name="name"
-                type="text"
-                autoComplete="name"
-                value={formData.name}
-                onChange={handleChange}
-                className={`form-input ${errors.name ? 'input-error' : ''}`}
-                placeholder="e.g. Alex Morgan"
-                aria-invalid={!!errors.name}
-                aria-describedby={errors.name ? 'name-error' : undefined}
-                required
-              />
-              {errors.name && (
-                <span id="name-error" className="error-message">
-                  {errors.name}
-                </span>
-              )}
-            </div>
+        <h3 className="success-title">Message Prepared!</h3>
+        <p className="success-desc">
+          Thank you, <strong>{formData.name}</strong>. Because this is a static client portfolio, you can launch your default email client with your note ready to send.
+        </p>
+        <div className="success-actions">
+          <a
+            href={mailtoUrl}
+            className="success-btn-primary"
+          >
+            <MailIcon size={16} />
+            <span>Open in Email App</span>
+          </a>
+          <button
+            type="button"
+            onClick={handleReset}
+            className="success-btn-outline"
+          >
+            Send Another Message
+          </button>
+        </div>
+      </div>
+    );
+  }
 
-            {/* Email Field */}
-            <div className="form-group">
-              <label htmlFor="contact-email" className="form-label">
-                Your Email <span className="required-star">*</span>
-              </label>
-              <input
-                id="contact-email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                value={formData.email}
-                onChange={handleChange}
-                className={`form-input ${errors.email ? 'input-error' : ''}`}
-                placeholder="e.g. alex@company.com"
-                aria-invalid={!!errors.email}
-                aria-describedby={errors.email ? 'email-error' : undefined}
-                required
-              />
-              {errors.email && (
-                <span id="email-error" className="error-message">
-                  {errors.email}
-                </span>
-              )}
-            </div>
-          </div>
+  return (
+    <form onSubmit={handleSubmit} className="contact-form" noValidate>
+      {/* 2-Column Name & Email Row */}
+      <div className="form-grid-2">
+        <div className="form-group">
+          <label htmlFor="contact-name" className="form-label">
+            Name <span className="required-star">*</span>
+          </label>
+          <input
+            id="contact-name"
+            name="name"
+            type="text"
+            autoComplete="name"
+            value={formData.name}
+            onChange={handleChange}
+            className={`form-input ${errors.name ? 'input-error' : ''}`}
+            placeholder="Your name"
+            aria-invalid={!!errors.name}
+            required
+          />
+          {errors.name && <span className="error-message">{errors.name}</span>}
+        </div>
 
-          {/* Subject Field */}
-          <div className="form-group">
-            <label htmlFor="contact-subject" className="form-label">
-              Subject <span className="required-star">*</span>
-            </label>
-            <input
-              id="contact-subject"
-              name="subject"
-              type="text"
-              value={formData.subject}
-              onChange={handleChange}
-              className={`form-input ${errors.subject ? 'input-error' : ''}`}
-              placeholder="e.g. Internship Opportunity / QA Inquiry"
-              aria-invalid={!!errors.subject}
-              aria-describedby={errors.subject ? 'subject-error' : undefined}
-              required
-            />
-            {errors.subject && (
-              <span id="subject-error" className="error-message">
-                {errors.subject}
-              </span>
-            )}
-          </div>
+        <div className="form-group">
+          <label htmlFor="contact-email" className="form-label">
+            Email <span className="required-star">*</span>
+          </label>
+          <input
+            id="contact-email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            value={formData.email}
+            onChange={handleChange}
+            className={`form-input ${errors.email ? 'input-error' : ''}`}
+            placeholder="Your email"
+            aria-invalid={!!errors.email}
+            required
+          />
+          {errors.email && <span className="error-message">{errors.email}</span>}
+        </div>
+      </div>
 
-          {/* Message Field */}
-          <div className="form-group">
-            <label htmlFor="contact-message" className="form-label">
-              Message <span className="required-star">*</span>
-            </label>
-            <textarea
-              id="contact-message"
-              name="message"
-              rows={5}
-              value={formData.message}
-              onChange={handleChange}
-              className={`form-textarea ${errors.message ? 'input-error' : ''}`}
-              placeholder="Tell me about your team, role expectations, or how we might work together..."
-              aria-invalid={!!errors.message}
-              aria-describedby={errors.message ? 'message-error' : undefined}
-              required
-            ></textarea>
-            {errors.message && (
-              <span id="message-error" className="error-message">
-                {errors.message}
-              </span>
-            )}
-          </div>
+      {/* Subject Field */}
+      <div className="form-group">
+        <label htmlFor="contact-subject" className="form-label">
+          Subject <span className="required-star">*</span>
+        </label>
+        <input
+          id="contact-subject"
+          name="subject"
+          type="text"
+          value={formData.subject}
+          onChange={handleChange}
+          className={`form-input ${errors.subject ? 'input-error' : ''}`}
+          placeholder="e.g. Internship Opportunity / QA Inquiry"
+          aria-invalid={!!errors.subject}
+          required
+        />
+        {errors.subject && <span className="error-message">{errors.subject}</span>}
+      </div>
 
-          <div className="form-submit-row">
-            <Button
-              type="submit"
-              variant="primary"
-              size="lg"
-              disabled={isSubmitting}
-              icon={<MailIcon size={18} />}
-            >
-              {isSubmitting ? 'Processing...' : 'Send Message'}
-            </Button>
-            <span className="form-note">
-              Direct inquiries can also be sent via email or LinkedIn.
-            </span>
-          </div>
-        </form>
-      )}
-    </div>
+      {/* Message Textarea */}
+      <div className="form-group">
+        <label htmlFor="contact-message" className="form-label">
+          Message <span className="required-star">*</span>
+        </label>
+        <textarea
+          id="contact-message"
+          name="message"
+          rows={5}
+          value={formData.message}
+          onChange={handleChange}
+          className={`form-textarea ${errors.message ? 'input-error' : ''}`}
+          placeholder="Write your message here..."
+          aria-invalid={!!errors.message}
+          required
+        ></textarea>
+        {errors.message && <span className="error-message">{errors.message}</span>}
+      </div>
+
+      {/* Full-Width Send Message Button (Lakruwan & Naveen style) */}
+      <button
+        type="submit"
+        className="contact-submit-btn"
+        disabled={isSubmitting}
+      >
+        <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+        <SendIcon size={18} />
+      </button>
+    </form>
   );
 }

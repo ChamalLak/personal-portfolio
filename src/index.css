@@ -1,6 +1,7 @@
-/* Import Design Tokens and Global Styles */
+/* Import Design Tokens, Global Styles & Animations */
 @import './styles/tokens.css';
 @import './styles/globals.css';
+@import './styles/animations.css';
 
 #root {
   width: 100%;

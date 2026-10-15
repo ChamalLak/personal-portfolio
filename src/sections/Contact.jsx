@@ -6,8 +6,6 @@ import {
   MailIcon, 
   GithubIcon, 
   LinkedinIcon, 
-  MapPinIcon, 
-  CopyIcon, 
   CheckIcon 
 } from '../components/Icons';
 import './Contact.css';
@@ -23,101 +21,69 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section-wrapper contact-section" aria-label="Contact Chamal Lakshan">
+      {/* Background Cyan Ambient Glow */}
+      <div className="contact-ambient-glow" aria-hidden="true" />
+
       <div className="container">
-        <SectionHeader
-          badge="GET IN TOUCH"
-          title="Let's Discuss Opportunities & Projects"
-          subtitle={contactInfo.subtext}
-        />
+        {/* Section Header */}
+        <div className="contact-header-wrap reveal-on-scroll">
+          <SectionHeader
+            badge="GET IN TOUCH"
+            title={
+              <>
+                Let's <span className="text-cyan-gradient">Connect</span>
+              </>
+            }
+            subtitle={contactInfo.subtext}
+          />
+        </div>
 
-        <div className="contact-layout-grid">
-          {/* Left Column: Direct Contact Info & Channels */}
-          <div className="contact-info-column">
-            <div className="contact-info-card glass-panel">
-              <h3 className="contact-info-title">Contact Channels</h3>
-              <p className="contact-info-desc">
-                Currently welcoming internship and entry-level discussions across Software Engineering and Quality Assurance.
-              </p>
+        {/* Centered Sleek Contact Card (Lakruwan & Naveen Madhawa Inspired) */}
+        <div className="contact-centered-wrapper reveal-on-scroll delay-1">
+          <div className="contact-card">
+            {/* The Form */}
+            <ContactForm recipientEmail={contactInfo.email} />
 
-              <div className="contact-channels-list">
-                {/* Email Item */}
-                <div className="channel-item">
-                  <div className="channel-icon-box">
-                    <MailIcon size={20} />
-                  </div>
-                  <div className="channel-content">
-                    <span className="channel-label">Email Address</span>
-                    <span className="channel-value">{contactInfo.emailDisplay}</span>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={handleCopyEmail}
-                    className="channel-copy-btn"
-                    title="Copy placeholder email to clipboard"
-                    aria-label="Copy email address"
-                  >
-                    {copied ? <CheckIcon size={14} /> : <CopyIcon size={14} />}
-                    <span>{copied ? 'Copied' : 'Copy'}</span>
-                  </button>
-                </div>
-
-                {/* LinkedIn Item */}
+            {/* Direct Social & Email Quick Connect Bar */}
+            <div className="contact-direct-channels">
+              <span className="direct-channels-label">Or connect directly via</span>
+              <div className="direct-channels-list">
                 <a
-                  href={contactInfo.linkedinUrl}
+                  href={contactInfo.linkedin || personalData.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="channel-item channel-link-item"
+                  className="direct-channel-pill"
+                  aria-label="LinkedIn Profile"
                 >
-                  <div className="channel-icon-box">
-                    <LinkedinIcon size={20} />
-                  </div>
-                  <div className="channel-content">
-                    <span className="channel-label">LinkedIn</span>
-                    <span className="channel-value">Chamal Lakshan [Placeholder]</span>
-                  </div>
-                  <span className="channel-link-arrow">↗</span>
+                  <LinkedinIcon size={15} />
+                  <span>LinkedIn</span>
+                  <span className="pill-arrow">↗</span>
                 </a>
 
-                {/* GitHub Item */}
                 <a
-                  href={contactInfo.github}
+                  href={contactInfo.github || personalData.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="channel-item channel-link-item"
+                  className="direct-channel-pill"
+                  aria-label="GitHub Profile"
                 >
-                  <div className="channel-icon-box">
-                    <GithubIcon size={20} />
-                  </div>
-                  <div className="channel-content">
-                    <span className="channel-label">GitHub</span>
-                    <span className="channel-value">github.com/ChamalLak</span>
-                  </div>
-                  <span className="channel-link-arrow">↗</span>
+                  <GithubIcon size={15} />
+                  <span>GitHub</span>
+                  <span className="pill-arrow">↗</span>
                 </a>
 
-                {/* Location Item */}
-                <div className="channel-item">
-                  <div className="channel-icon-box">
-                    <MapPinIcon size={20} />
-                  </div>
-                  <div className="channel-content">
-                    <span className="channel-label">Location & University</span>
-                    <span className="channel-value">{contactInfo.university}, {personalData.location}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Status Note */}
-              <div className="contact-availability-box">
-                <span className="availability-dot"></span>
-                <span>Ready for technical interviews and screening assessments.</span>
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="direct-channel-pill email-pill"
+                  title="Copy email to clipboard"
+                  aria-label="Copy email address"
+                >
+                  {copied ? <CheckIcon size={14} /> : <MailIcon size={14} />}
+                  <span>{copied ? 'Copied!' : 'Email'}</span>
+                </button>
               </div>
             </div>
-          </div>
-
-          {/* Right Column: Accessible Contact Form */}
-          <div className="contact-form-column">
-            <ContactForm recipientEmail={contactInfo.email} />
           </div>
         </div>
       </div>

@@ -34,7 +34,7 @@ export default function About() {
         {/* Main 2-Column Showcase */}
         <div className="about-container">
           {/* Left Column: Circular Portrait with Glowing Neon Cyan Halo (Inspired by Lakruwan) */}
-          <div className="about-visual-col">
+          <div className="about-visual-col reveal-on-scroll">
             <div className="about-avatar-wrapper">
               <div className="about-avatar-halo" aria-hidden="true" />
               <div className="about-avatar-ring">
@@ -54,7 +54,7 @@ export default function About() {
           </div>
 
           {/* Right Column: Bio Narrative, Roles & Highlights */}
-          <div className="about-content-col">
+          <div className="about-content-col reveal-on-scroll delay-1">
             {/* Small Eyebrow Label */}
             <span className="about-eyebrow">{aboutData.title}</span>
 
@@ -77,8 +77,8 @@ export default function About() {
 
             {/* Highlights Grid (2x2 with Icons, inspired by Lakruwan) */}
             <div className="about-highlights-grid">
-              {aboutData.highlights.map((item) => (
-                <div key={item.id} className="about-highlight-card">
+              {aboutData.highlights.map((item, idx) => (
+                <div key={item.id} className={`about-highlight-card reveal-on-scroll delay-${idx + 1}`}>
                   <div className="about-icon-box" aria-hidden="true">
                     {getHighlightIcon(item.icon)}
                   </div>
@@ -89,18 +89,6 @@ export default function About() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Horizontal Tech Pill Strip (Inspired by Naveen's Portfolio) */}
-        <div className="about-tech-strip-container">
-          <span className="tech-strip-title">Core Technologies &amp; Testing Tools</span>
-          <div className="about-tech-strip" aria-label="Core technologies">
-            {aboutData.techStrip.map((tech, idx) => (
-              <span key={idx} className="about-tech-pill">
-                {tech}
-              </span>
-            ))}
           </div>
         </div>
       </div>

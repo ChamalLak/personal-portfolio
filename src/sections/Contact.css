@@ -1,143 +1,151 @@
-.contact-layout-grid {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: var(--space-8);
-  align-items: start;
-}
+/* ==========================================================================
+   CONTACT SECTION (STREAMLINED & CENTERED)
+   ========================================================================== */
 
-/* Info Column */
-.contact-info-card {
-  padding: var(--space-8);
-  border-radius: var(--radius-2xl);
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-info-title {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--text-primary);
-  margin-bottom: var(--space-2);
-}
-
-.contact-info-desc {
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-  line-height: var(--line-height-relaxed);
-  margin-bottom: var(--space-6);
-}
-
-.contact-channels-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  margin-bottom: var(--space-6);
-}
-
-.channel-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-4);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  transition: all var(--transition-fast);
-  text-decoration: none;
+.contact-section {
   position: relative;
+  padding: 5rem 0 2.25rem;
+  overflow: hidden;
 }
 
-.channel-link-item:hover {
-  border-color: var(--accent-primary);
-  background: var(--bg-surface-hover);
-  transform: translateX(2px);
+/* Ambient Background Radial Cyan Glow */
+.contact-ambient-glow {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, rgba(79, 172, 254, 0.03) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(50px);
 }
 
-.channel-icon-box {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-md);
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-medium);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-primary);
-  flex-shrink: 0;
+.contact-header-wrap {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
 }
 
-.channel-content {
+/* Centered Container Wrapper */
+.contact-centered-wrapper {
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* The Main Contact Card */
+.contact-card {
+  padding: 2.75rem 2.5rem;
+  border-radius: 24px;
+  background: #0d1117;
+  background: linear-gradient(180deg, #131926 0%, #0d1117 100%);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55),
+              0 0 25px rgba(0, 242, 254, 0.07);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-card:hover {
+  border-color: rgba(0, 242, 254, 0.45);
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.7),
+              0 0 35px rgba(0, 242, 254, 0.16);
+}
+
+/* Direct Channels Minimal Bottom Strip */
+.contact-direct-channels {
+  margin-top: 1.85rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  overflow: hidden;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.channel-label {
-  font-size: 0.7rem;
+.direct-channels-label {
   font-family: var(--font-mono);
-  color: var(--text-subtle);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748b;
   text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-.channel-value {
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--text-primary);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.direct-channels-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.channel-copy-btn {
+.direct-channel-pill {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  font-size: var(--font-size-xs);
+  gap: 0.45rem;
+  padding: 7px 16px;
+  border-radius: 9999px;
+  background: #161b22;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  color: #cbd5e1;
   font-family: var(--font-mono);
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-sm);
-  color: var(--text-secondary);
+  font-size: 0.775rem;
+  font-weight: 500;
+  text-decoration: none;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.channel-copy-btn:hover {
-  background: var(--bg-surface-hover);
-  color: var(--accent-primary);
-  border-color: var(--accent-primary);
+.direct-channel-pill:hover {
+  border-color: #00f2fe;
+  color: #00f2fe;
+  background: rgba(0, 242, 254, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 242, 254, 0.2);
 }
 
-.channel-link-arrow {
-  color: var(--text-subtle);
-  font-size: var(--font-size-sm);
+.email-pill {
+  font-family: var(--font-mono);
 }
 
-.contact-availability-box {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-3) var(--space-4);
-  background: var(--status-success-bg);
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-xs);
-  color: var(--status-success);
-  font-weight: var(--font-weight-medium);
+.pill-arrow {
+  color: #64748b;
+  font-size: 0.8rem;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.availability-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--status-success);
-  flex-shrink: 0;
+.direct-channel-pill:hover .pill-arrow {
+  color: #00f2fe;
+  transform: translate(2px, -2px);
 }
 
-@media (max-width: 860px) {
-  .contact-layout-grid {
-    grid-template-columns: 1fr;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 3.5rem 0 4.5rem;
+  }
+
+  .contact-card {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .direct-channels-list {
+    gap: 0.5rem;
+  }
+
+  .direct-channel-pill {
+    padding: 6px 12px;
+    font-size: 0.725rem;
   }
 }

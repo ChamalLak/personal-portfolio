@@ -6,9 +6,12 @@ import Skills from './sections/Skills';
 import Projects from './sections/Projects';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
+import { useScrollReveal } from './hooks/useScrollReveal';
 import './App.css';
 
 export default function App() {
+  useScrollReveal();
+
   return (
     <div className="portfolio-app">
       {/* Accessibility Skip Link */}

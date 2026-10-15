@@ -107,6 +107,67 @@
   margin-bottom: 1.5rem;
 }
 
+.sub-group-header-flex {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sub-group-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.tech-filter-pills-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.tech-filter-btn {
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(22, 27, 34, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  color: #94a3b8;
+  font-size: 0.775rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tech-filter-btn:hover {
+  color: #f8fafc;
+  border-color: rgba(0, 242, 254, 0.4);
+}
+
+.tech-filter-btn-active {
+  background: rgba(0, 242, 254, 0.15) !important;
+  border-color: #00f2fe !important;
+  color: #00f2fe !important;
+  font-weight: 600 !important;
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.25) !important;
+}
+
+[data-theme='light'] .tech-filter-btn {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #64748b;
+}
+
+[data-theme='light'] .tech-filter-btn:hover {
+  color: #0f172a;
+  border-color: #0284c7;
+}
+
+[data-theme='light'] .tech-filter-btn-active {
+  background: rgba(2, 132, 199, 0.12) !important;
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+}
+
 .sub-group-icon-badge {
   width: 38px;
   height: 38px;
@@ -347,7 +408,14 @@
 .exp-role-group {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.35rem;
+}
+
+.exp-role-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
 }
 
 .exp-role-title {
@@ -358,11 +426,36 @@
   letter-spacing: -0.015em;
 }
 
+.exp-category-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(0, 242, 254, 0.1);
+  color: #00f2fe;
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  letter-spacing: 0.03em;
+}
+
+.exp-org-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
 .exp-organization {
   font-family: var(--font-mono);
   font-size: 0.875rem;
   font-weight: 600;
   color: #00f2fe;
+}
+
+.exp-location {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-family: var(--font-mono);
 }
 
 .exp-period-pill {
@@ -376,6 +469,36 @@
   color: #00f2fe;
   white-space: nowrap;
   box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.period-current {
+  background: rgba(0, 242, 254, 0.2) !important;
+  border-color: #00f2fe !important;
+  color: #00f2fe !important;
+  box-shadow: 0 0 16px rgba(0, 242, 254, 0.35) !important;
+}
+
+.period-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #00f2fe;
+  box-shadow: 0 0 8px #00f2fe;
+  animation: currentPulse 1.8s infinite;
+}
+
+@keyframes currentPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.25);
+  }
 }
 
 .exp-card-body {

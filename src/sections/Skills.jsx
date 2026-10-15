@@ -12,12 +12,14 @@ import {
   ShieldCheckIcon,
   DatabaseIcon,
   LayersIcon,
-  CheckIcon
+  CheckIcon,
+  TerminalIcon
 } from '../components/Icons';
 import './Skills.css';
 
 export default function Skills() {
   const [activeTab, setActiveTab] = useState('skills'); // 'skills' | 'experience'
+  const [activeTechFilter, setActiveTechFilter] = useState('all');
 
   const getSubSectionIcon = (iconName) => {
     switch (iconName) {
@@ -30,6 +32,25 @@ export default function Skills() {
     }
   };
 
+  const techFilters = [
+    { id: 'all', label: 'All Stack' },
+    { id: 'qa', label: 'QA & Testing' },
+    { id: 'frontend', label: 'Frontend' },
+    { id: 'backend', label: 'Backend & DB' },
+    { id: 'languages', label: 'Languages' },
+    { id: 'tools', label: 'Tools & VCS' },
+  ];
+
+  const filteredTechLogos = techStackLogos.filter((tool) => {
+    if (activeTechFilter === 'all') return true;
+    if (activeTechFilter === 'qa') return tool.tag.toLowerCase().includes('qa') || tool.tag.toLowerCase().includes('api');
+    if (activeTechFilter === 'frontend') return tool.tag.toLowerCase().includes('frontend') || tool.tag.toLowerCase().includes('styling') || tool.tag.toLowerCase().includes('markup');
+    if (activeTechFilter === 'backend') return tool.tag.toLowerCase().includes('backend') || tool.tag.toLowerCase().includes('database');
+    if (activeTechFilter === 'languages') return tool.tag.toLowerCase().includes('language');
+    if (activeTechFilter === 'tools') return tool.tag.toLowerCase().includes('vcs') || tool.tag.toLowerCase().includes('platform');
+    return true;
+  });
+
   return (
     <section id="skills" className="section-wrapper skills-section" aria-label="Skills and Experience">
       {/* Background Cyan Ambient Glow */}
@@ -37,7 +58,7 @@ export default function Skills() {
 
       <div className="container">
         {/* Section Header */}
-        <div className="skills-header-wrap">
+        <div className="skills-header-wrap reveal-on-scroll">
           <SectionHeader
             badge="EXPERTISE &amp; BACKGROUND"
             title={
@@ -45,7 +66,7 @@ export default function Skills() {
                 Skills &amp; <span className="text-cyan-gradient">Experience</span>
               </>
             }
-            subtitle="Technical expertise, developer toolchains, and hands-on project &amp; academic experience."
+            subtitle="Technical expertise, developer toolchains, and hands-on leadership &amp; academic experience."
           />
 
           {/* Interactive Dual-Mode Capsule Switcher (Lakruwan & Theekshana inspired) */}
@@ -99,8 +120,8 @@ export default function Skills() {
                     </div>
 
                     <ul className="core-skill-points">
-                      {category.points.map((point, idx) => (
-                        <li key={idx} className="core-point-item">
+                      {category.points.map((point, pIdx) => (
+                        <li key={pIdx} className="core-point-item">
                           <span className="core-bullet-dot" aria-hidden="true" />
                           <span>{point}</span>
                         </li>
@@ -132,17 +153,33 @@ export default function Skills() {
               </div>
             </div>
 
-            {/* Sub-Section 3: Frameworks, Tools & Technologies (Theekshana Style) */}
+            {/* Sub-Section 3: Frameworks, Tools & Technologies (Interactive Filter Strip) */}
             <div className="skills-sub-group">
-              <div className="sub-group-header">
-                <span className="sub-group-icon-badge" aria-hidden="true">
-                  <LayersIcon size={18} />
-                </span>
-                <h3 className="sub-group-title">Frameworks &amp; Testing Toolchains</h3>
+              <div className="sub-group-header sub-group-header-flex">
+                <div className="sub-group-title-wrap">
+                  <span className="sub-group-icon-badge" aria-hidden="true">
+                    <LayersIcon size={18} />
+                  </span>
+                  <h3 className="sub-group-title">Frameworks &amp; Testing Toolchains</h3>
+                </div>
+
+                {/* Filter Category Pills */}
+                <div className="tech-filter-pills-bar" role="tablist" aria-label="Toolchain Category Filters">
+                  {techFilters.map((tf) => (
+                    <button
+                      key={tf.id}
+                      type="button"
+                      className={`tech-filter-btn ${activeTechFilter === tf.id ? 'tech-filter-btn-active' : ''}`}
+                      onClick={() => setActiveTechFilter(tf.id)}
+                    >
+                      {tf.label}
+                    </button>
+                  ))}
+                </div>
               </div>
 
               <div className="tech-logos-grid" aria-label="Frameworks and tools list">
-                {techStackLogos.map((tool, idx) => (
+                {filteredTechLogos.map((tool, idx) => (
                   <div key={idx} className="tech-logo-pill">
                     <span className="tech-logo-name">{tool.name}</span>
                     <span className="tech-logo-tag">{tool.tag}</span>
@@ -164,12 +201,21 @@ export default function Skills() {
                   {/* Card Header: Role, Org, and Duration Pill */}
                   <div className="exp-card-header">
                     <div className="exp-role-group">
-                      <h3 className="exp-role-title">{exp.role}</h3>
-                      <span className="exp-organization">{exp.organization}</span>
+                      <div className="exp-role-title-row">
+                        <h3 className="exp-role-title">{exp.role}</h3>
+                        {exp.badge && <span className="exp-category-badge">{exp.badge}</span>}
+                      </div>
+                      <div className="exp-org-row">
+                        <span className="exp-organization">{exp.organization}</span>
+                        {exp.location && <span className="exp-location">• {exp.location}</span>}
+                      </div>
                     </div>
 
                     <div className="exp-badge-group">
-                      <span className="exp-period-pill">{exp.period}</span>
+                      <span className={`exp-period-pill ${exp.isCurrent ? 'period-current' : ''}`}>
+                        {exp.isCurrent && <span className="period-pulse-dot" aria-hidden="true" />}
+                        <span>{exp.period}</span>
+                      </span>
                     </div>
                   </div>
 
@@ -179,8 +225,8 @@ export default function Skills() {
                     <div className="exp-col-responsibilities">
                       <h4 className="exp-section-label">Key Responsibilities &amp; Contributions</h4>
                       <ul className="exp-responsibilities-list">
-                        {exp.responsibilities.map((resp, idx) => (
-                          <li key={idx} className="exp-resp-item">
+                        {exp.responsibilities.map((resp, rIdx) => (
+                          <li key={rIdx} className="exp-resp-item">
                             <CheckIcon size={15} className="resp-check-icon" />
                             <span>{resp}</span>
                           </li>
@@ -192,8 +238,8 @@ export default function Skills() {
                     <div className="exp-col-skills">
                       <h4 className="exp-section-label">Skills &amp; Technologies Applied</h4>
                       <div className="exp-skills-tags">
-                        {exp.skillsGained.map((skill, idx) => (
-                          <span key={idx} className="exp-skill-pill">
+                        {exp.skillsGained.map((skill, sIdx) => (
+                          <span key={sIdx} className="exp-skill-pill">
                             {skill}
                           </span>
                         ))}

@@ -13,8 +13,8 @@
   background: var(--bg-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-sm);
+  border-bottom: none;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
 .navbar-container {
@@ -219,3 +219,27 @@
     display: flex;
   }
 }
+
+/* Scroll Progress Line (Bottom Cyan Accent) */
+.navbar-scroll-progress-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: transparent;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.navbar-scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 60%, #38bdf8 100%);
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.8),
+              0 0 5px rgba(0, 242, 254, 0.5);
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  transition: width 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+

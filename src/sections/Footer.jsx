@@ -1,88 +1,110 @@
 import React from 'react';
 import { personalData, navLinks } from '../data/portfolioData';
-import { GithubIcon, LinkedinIcon, MailIcon, ArrowUpIcon } from '../components/Icons';
+import {
+  GithubIcon,
+  LinkedinIcon,
+  MailIcon,
+  ArrowUpIcon
+} from '../components/Icons';
 import './Footer.css';
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const currentYear = new Date().getFullYear();
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <footer className="portfolio-footer" role="contentinfo">
       <div className="container footer-container">
-        {/* Top Footer Row */}
-        <div className="footer-top">
+        {/* Main Top Row: Brand (Logo + Name + Tag) | Statement | Navigation Links & Top */}
+        <div className="footer-main-row">
+          {/* Left: Brand using navigation signature logo with Chamal Lakshan and PORTFOLIO SITE badge */}
           <div className="footer-brand">
-            <img
-              src="/logo-signature.png"
-              alt={personalData.name}
-              className="footer-brand-logo"
-            />
-            <span className="footer-role">{personalData.headline}</span>
+            <a href="#" className="footer-brand-link" aria-label="Chamal Lakshan Home">
+              <img
+                src="/logo-signature.png"
+                alt={personalData.name}
+                className="footer-brand-logo"
+              />
+            </a>
+            <div className="footer-brand-info">
+              <span className="footer-brand-name">{personalData.name}</span>
+              <span className="footer-tag-badge">PORTFOLIO SITE</span>
+            </div>
           </div>
 
-          {/* Quick Nav Links */}
-          <nav className="footer-nav" aria-label="Footer Navigation">
-            <ul className="footer-nav-list">
-              {navLinks.map((link) => (
-                <li key={link.id}>
-                  <a href={`#${link.id}`} className="footer-nav-link">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* Back to top button */}
-          <button
-            type="button"
-            className="footer-top-btn"
-            onClick={scrollToTop}
-            aria-label="Scroll back to top of page"
-            title="Back to top"
-          >
-            <span>Top</span>
-            <ArrowUpIcon size={16} />
-          </button>
-        </div>
-
-        <div className="footer-divider"></div>
-
-        {/* Bottom Footer Row */}
-        <div className="footer-bottom">
-          <p className="footer-copyright">
-            © {currentYear} {personalData.name}. Built with React & Vite. Recruiter-friendly portfolio.
+          {/* Center: Inspirational Statement */}
+          <p className="footer-tagline">
+            Dedicated to software excellence, clean execution, and continuous learning.
           </p>
 
-          <div className="footer-social-links">
+          {/* Right: Quick Navigation Links + Back to Top Button */}
+          <div className="footer-nav-group">
+            <nav className="footer-nav" aria-label="Footer Navigation">
+              <ul className="footer-nav-list">
+                {navLinks.map((link) => (
+                  <li key={link.id}>
+                    <a href={`#${link.id}`} className="footer-nav-link">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <button
+              type="button"
+              className="footer-top-btn"
+              onClick={scrollToTop}
+              aria-label="Scroll back to top of page"
+              title="Back to top"
+            >
+              <span>Top</span>
+              <ArrowUpIcon size={14} />
+            </button>
+          </div>
+        </div>
+
+        {/* Bottom Sub-row: Copyright & Social Links */}
+        <div className="footer-bottom-row">
+          <p className="footer-copyright">
+            © {currentYear} {personalData.name}. All rights reserved.
+          </p>
+
+          {/* Social Icons on Bottom Row */}
+          <div className="footer-social-group">
             <a
               href={personalData.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="footer-social-link"
+              className="footer-social-btn"
               aria-label="GitHub Profile"
+              title="GitHub"
             >
-              <GithubIcon size={18} />
+              <GithubIcon size={17} />
             </a>
             <a
               href={personalData.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="footer-social-link"
+              className="footer-social-btn"
               aria-label="LinkedIn Profile"
+              title="LinkedIn"
             >
-              <LinkedinIcon size={18} />
+              <LinkedinIcon size={17} />
             </a>
             <a
               href="#contact"
-              className="footer-social-link"
+              className="footer-social-btn"
               aria-label="Contact Section"
+              title="Send Email / Message"
             >
-              <MailIcon size={18} />
+              <MailIcon size={17} />
             </a>
           </div>
         </div>

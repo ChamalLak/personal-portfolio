@@ -1,0 +1,292 @@
+/* ==========================================================================
+   PORTFOLIO ANIMATIONS & MICRO-INTERACTIONS
+   Smooth, High-Performance, Accessible (Respects prefers-reduced-motion)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. KEYFRAME ANIMATIONS
+   -------------------------------------------------------------------------- */
+
+/* Fade In Up Entrance */
+@keyframes heroFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Scale Entrance (For Portrait) */
+@keyframes heroFadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Gentle Floating Motion */
+@keyframes heroFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Ambient Cyan Glow Breathing Pulse */
+@keyframes ambientGlowPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.55;
+  }
+}
+
+/* Shimmer Light Sweep */
+@keyframes shimmerSweep {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* Subtle Floating Halo */
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. SCROLL REVEAL UTILITY CLASSES
+   -------------------------------------------------------------------------- */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reveal Stagger Delays */
+.delay-1 { transition-delay: 0.08s; }
+.delay-2 { transition-delay: 0.16s; }
+.delay-3 { transition-delay: 0.24s; }
+.delay-4 { transition-delay: 0.32s; }
+.delay-5 { transition-delay: 0.40s; }
+
+/* --------------------------------------------------------------------------
+   3. HERO LIVING ANIMATIONS
+   -------------------------------------------------------------------------- */
+.hero-content > .hero-status-pill {
+  animation: heroFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.hero-content > .hero-greeting {
+  animation: heroFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.hero-content > .hero-name {
+  animation: heroFadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.hero-content > .hero-subtitle {
+  animation: heroFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+.hero-content > .hero-institution {
+  animation: heroFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.48s both;
+}
+
+.hero-content > .hero-summary {
+  animation: heroFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+}
+
+.hero-content > .hero-actions {
+  animation: heroFadeInUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.62s both;
+}
+
+.hero-content > .hero-social-links {
+  animation: heroFadeInUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+}
+
+/* Hero Portrait Living Animation */
+.hero-visual {
+  animation: heroFadeInScale 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.hero-avatar-wrapper {
+  animation: heroFloat 5.5s ease-in-out infinite alternate;
+}
+
+.hero-ambient-glow {
+  animation: ambientGlowPulse 6s ease-in-out infinite alternate !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. AMBIENT GLOWS BREATHING (ACROSS SECTIONS)
+   -------------------------------------------------------------------------- */
+.about-ambient-glow,
+.skills-ambient-glow,
+.projects-ambient-glow,
+.contact-ambient-glow {
+  animation: ambientGlowPulse 7s ease-in-out infinite alternate;
+}
+
+/* --------------------------------------------------------------------------
+   5. INTERACTIVE MICRO-ANIMATIONS
+   -------------------------------------------------------------------------- */
+
+/* Primary Button Light Sheen Sweep */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.btn-primary:hover::after {
+  animation: shimmerSweep 0.85s ease forwards;
+}
+
+/* Send Message Button: Paperplane Flight Tilt */
+.contact-submit-btn svg {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-submit-btn:hover:not(:disabled) svg {
+  transform: translate(4px, -4px) rotate(8deg);
+}
+
+/* Highlight Cards Icon Micro-Rotation on Card Hover */
+.about-highlight-card .about-icon-box {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.about-highlight-card:hover .about-icon-box {
+  transform: scale(1.1) rotate(5deg);
+  background: rgba(0, 242, 254, 0.18);
+  border-color: #00f2fe;
+}
+
+/* Skills Competency Icon Box Bounce on Card Hover */
+.core-skill-card .core-card-icon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease;
+}
+
+.core-skill-card:hover .core-card-icon {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 0 16px rgba(0, 242, 254, 0.35);
+}
+
+/* Experience Responsibilities Checkmark Highlight */
+.exp-resp-item {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.exp-resp-item:hover {
+  transform: translateX(3px);
+  color: #f8fafc;
+}
+
+.exp-resp-item:hover .resp-check-icon {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 6px #00f2fe);
+}
+
+/* Project Spotlight Button Shimmer */
+.project-card .project-btn-full {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card .project-btn-full::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.project-card:hover .project-btn-full::after {
+  animation: shimmerSweep 0.85s ease forwards;
+}
+
+/* --------------------------------------------------------------------------
+   6. ACCESSIBILITY: PREFERS-REDUCED-MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

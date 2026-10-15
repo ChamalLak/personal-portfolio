@@ -92,60 +92,43 @@ export const aboutData = {
 
 export const experienceData = [
   {
-    id: "smart-plate-lead",
-    role: "Full-Stack Developer & Project Lead",
-    organization: "Smart Plate Platform (UWU)",
-    period: "2024 — Present",
-    badge: "Active Project",
+    id: "ieee-cs-treasurer",
+    role: "Treasurer",
+    organization: "IEEE Computer Society - Uva Wellassa University",
+    location: "Badulla, Sri Lanka",
+    period: "Mar 2026 — Present",
+    isCurrent: true,
+    badge: "Current Role",
     responsibilities: [
-      "Architected full-stack web ordering system using React, Node.js, and PostgreSQL",
-      "Engineered real-time order queue pipeline with dynamic status updates",
-      "Implemented responsive checkout interface with client-side form validation"
+      "Manage chapter finances, budgets, and operational expenditures",
+      "Coordinate event funding and budget allocations with the Executive Committee",
+      "Maintain accurate financial reports adhering to IEEE global guidelines"
     ],
     skillsGained: [
-      "React.js",
-      "Node.js",
-      "PostgreSQL",
-      "Tailwind CSS",
-      "RESTful APIs",
-      "System Design"
+      "Financial Management",
+      "Budget Planning",
+      "Executive Leadership",
+      "IEEE Compliance"
     ]
   },
   {
-    id: "qa-engineering",
-    role: "QA & Automated Testing Practitioner",
-    organization: "Academic Quality Engineering",
-    period: "2024 — Present",
-    badge: "Ongoing Practice",
+    id: "ieee-sl-inspire-chair",
+    role: "Project Chair - SL Inspire",
+    organization: "IEEE Sri Lanka Section • UWU",
+    location: "Uva Wellassa University",
+    period: "Oct 2025 — Nov 2025",
+    isCurrent: false,
+    badge: "Leadership & Volunteering",
     responsibilities: [
-      "Designed and executed end-to-end test cases, defect matrices, and test plans",
-      "Formulated automated API verification collections in Postman with schema assertions",
-      "Conducted regression testing, edge case inspection, and bug lifecycle triage"
+      "Coordinated university activities for the national SL Inspire initiative",
+      "Led student volunteer teams and oversaw event logistics",
+      "Conducted educational outreach sessions for school students"
     ],
     skillsGained: [
-      "Postman API Testing",
-      "Test Case Design",
-      "Bug Life Cycle (STLC)",
-      "Selenium Basics",
-      "API Assertions"
-    ]
-  },
-  {
-    id: "uwu-undergraduate",
-    role: "Industrial IT Undergraduate",
-    organization: "Uva Wellassa University of Sri Lanka",
-    period: "2023 — Present",
-    badge: "Academic",
-    responsibilities: [
-      "Pursuing specialized curriculum integrating software engineering and industrial systems",
-      "Collaborated in team technical projects on system analysis, modeling, and prototyping",
-      "Applied process awareness and database normalization to real-world software scenarios"
-    ],
-    skillsGained: [
-      "Industrial Systems Mindset",
-      "Database Normalization",
-      "System Analysis & Design",
-      "Team Leadership"
+      "Project Management",
+      "Team Leadership",
+      "Event Coordination",
+      "Public Speaking"
     ]
   }
 ];
@@ -330,13 +313,12 @@ export const educationData = [
 ];
 
 export const contactInfo = {
-  headline: "Let's connect and build something dependable.",
-  subtext:
-    "I am eager to contribute as an intern or junior talent in Software Development or QA roles. Feel free to reach out for inquiries, discussions, or opportunities.",
+  headline: "Get In Touch",
+  subtext: "Have an internship opportunity, a project in mind, or just want to connect? Let's talk.",
   email: "chamal.lakshan@email.placeholder", // Placeholder
   emailDisplay: "chamal.lakshan [at] email.com (Placeholder)",
   github: "https://github.com/ChamalLak",
   linkedin: "https://linkedin.com/in/chamal-lakshan-placeholder",
-  location: "Badulla / Sri Lanka",
+  location: "Badulla, Sri Lanka",
   university: "Uva Wellassa University of Sri Lanka"
 };

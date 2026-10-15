@@ -148,12 +148,14 @@ code, kbd, samp, pre {
   padding-top: var(--space-20);
   padding-bottom: var(--space-20);
   position: relative;
+  scroll-margin-top: 85px;
 }
 
 @media (max-width: 768px) {
   .section-wrapper {
     padding-top: var(--space-12);
     padding-bottom: var(--space-12);
+    scroll-margin-top: 75px;
   }
 }
 

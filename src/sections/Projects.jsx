@@ -24,15 +24,21 @@ export default function Projects() {
 
       <div className="container">
         {/* Section Header */}
-        <SectionHeader
-          badge="PORTFOLIO &amp; WORK"
-          title="FEATURED PROJECTS"
-          subtitle="A display of my work across Software Development, QA Automation, and Industrial Systems"
-        />
+        <div className="reveal-on-scroll">
+          <SectionHeader
+            badge="PORTFOLIO &amp; WORK"
+            title={
+              <>
+                Featured <span className="text-cyan-gradient">Projects</span>
+              </>
+            }
+            subtitle="A display of my work across Software Development, QA Automation, and Industrial Systems"
+          />
+        </div>
 
         {/* Dynamic Category Filter Bar (Only shown if multiple categories exist) */}
         {showFilters && (
-          <div className="projects-filter-bar" role="tablist" aria-label="Filter projects">
+          <div className="projects-filter-bar reveal-on-scroll delay-1" role="tablist" aria-label="Filter projects">
             <button
               type="button"
               role="tab"
@@ -59,7 +65,7 @@ export default function Projects() {
 
         {/* Project Grid / Showcase Container */}
         <div
-          className={`projects-grid ${filteredProjects.length === 1 ? 'projects-grid-single' : ''}`}
+          className={`projects-grid reveal-on-scroll delay-1 ${filteredProjects.length === 1 ? 'projects-grid-single' : ''}`}
           role="region"
           aria-label="Projects list"
         >
@@ -69,7 +75,7 @@ export default function Projects() {
         </div>
 
         {/* Bottom Notice on Git Repository & Upcoming Projects */}
-        <div className="projects-footer-cta">
+        <div className="projects-footer-cta reveal-on-scroll delay-2">
           <div className="cta-content">
             <span className="cta-badge">Engineering &amp; Source Code</span>
             <p className="cta-text">
