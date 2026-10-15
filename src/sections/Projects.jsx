@@ -2,59 +2,91 @@ import React, { useState } from 'react';
 import SectionHeader from '../components/SectionHeader';
 import ProjectCard from '../components/ProjectCard';
 import { projectsData } from '../data/portfolioData';
+import { GithubIcon, ExternalLinkIcon } from '../components/Icons';
 import './Projects.css';
 
 export default function Projects() {
-  const [filter, setFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState('all');
 
-  const categories = [
-    { id: 'all', label: 'All Projects' },
-    { id: 'Software Development', label: 'Software Development' },
-    { id: 'Quality Assurance', label: 'Quality Assurance' }
-  ];
+  // Compute available categories dynamically so no empty tabs exist
+  const uniqueCategories = Array.from(new Set(projectsData.map((p) => p.category)));
+  const showFilters = uniqueCategories.length > 1;
 
-  const filteredProjects = filter === 'all'
-    ? projectsData
-    : projectsData.filter(p => p.category === filter);
+  const filteredProjects =
+    activeFilter === 'all'
+      ? projectsData
+      : projectsData.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="projects" className="section-wrapper projects-section" aria-label="Projects">
+    <section id="projects" className="section-wrapper projects-section" aria-label="Featured Projects">
+      {/* Background Subtle Ambient Cyan Glow */}
+      <div className="projects-ambient-glow" aria-hidden="true" />
+
       <div className="container">
+        {/* Section Header */}
         <SectionHeader
-          badge="PORTFOLIO & WORK"
-          title="Featured Projects & Technical Case Studies"
-          subtitle="Curated software applications and QA verification collections reflecting coursework and practical development interests."
+          badge="PORTFOLIO &amp; WORK"
+          title="FEATURED PROJECTS"
+          subtitle="A display of my work across Software Development, QA Automation, and Industrial Systems"
         />
 
-        {/* Project Filter Controls */}
-        <div className="projects-filter-bar" role="tablist" aria-label="Project Category Filter">
-          {categories.map((cat) => (
+        {/* Dynamic Category Filter Bar (Only shown if multiple categories exist) */}
+        {showFilters && (
+          <div className="projects-filter-bar" role="tablist" aria-label="Filter projects">
             <button
-              key={cat.id}
               type="button"
               role="tab"
-              aria-selected={filter === cat.id}
-              className={`project-tab-btn ${filter === cat.id ? 'project-tab-active' : ''}`}
-              onClick={() => setFilter(cat.id)}
+              aria-selected={activeFilter === 'all'}
+              className={`project-tab-btn ${activeFilter === 'all' ? 'project-tab-active' : ''}`}
+              onClick={() => setActiveFilter('all')}
             >
-              {cat.label}
+              All Projects ({projectsData.length})
             </button>
-          ))}
-        </div>
+            {uniqueCategories.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                role="tab"
+                aria-selected={activeFilter === cat}
+                className={`project-tab-btn ${activeFilter === cat ? 'project-tab-active' : ''}`}
+                onClick={() => setActiveFilter(cat)}
+              >
+                {cat} ({projectsData.filter((p) => p.category === cat).length})
+              </button>
+            ))}
+          </div>
+        )}
 
-        {/* Responsive Grid with Consistent Card Heights */}
-        <div className="projects-grid">
+        {/* Project Grid / Showcase Container */}
+        <div
+          className={`projects-grid ${filteredProjects.length === 1 ? 'projects-grid-single' : ''}`}
+          role="region"
+          aria-label="Projects list"
+        >
           {filteredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
 
-        {/* Notice on Project Links & Placeholders */}
-        <div className="projects-notice-box glass-panel">
-          <span className="notice-badge">Notice</span>
-          <p className="notice-text">
-            Project cards above represent practical software engineering and QA case studies aligned with the BSc Industrial Information Technology curriculum. GitHub repository links can be updated directly in <code>src/data/portfolioData.js</code>.
-          </p>
+        {/* Bottom Notice on Git Repository & Upcoming Projects */}
+        <div className="projects-footer-cta">
+          <div className="cta-content">
+            <span className="cta-badge">Engineering &amp; Source Code</span>
+            <p className="cta-text">
+              Source code repositories and upcoming project commits are managed on GitHub. For access to private repositories or technical walkthroughs, feel free to reach out directly.
+            </p>
+          </div>
+          <a
+            href="https://github.com/ChamalLak"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-github-btn"
+            aria-label="Visit Chamal's GitHub Profile"
+          >
+            <GithubIcon size={18} />
+            <span>Visit GitHub Profile</span>
+            <ExternalLinkIcon size={14} />
+          </a>
         </div>
       </div>
     </section>

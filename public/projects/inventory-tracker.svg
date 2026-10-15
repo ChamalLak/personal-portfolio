@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bg-grad-inv" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="50%" stop-color="#0d1117" />
+      <stop offset="100%" stop-color="#070a12" />
+    </linearGradient>
+    <linearGradient id="cyan-glow-inv" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#4facfe" />
+    </linearGradient>
+    <linearGradient id="cyan-glow-subtle" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#00f2fe" stop-opacity="0.0" />
+    </linearGradient>
+    <filter id="glow-inv" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1280" height="720" fill="url(#bg-grad-inv)" />
+
+  <!-- Ambient Grid Background -->
+  <g opacity="0.06" stroke="#00f2fe" stroke-width="1">
+    <path d="M 0,90 L 1280,90 M 0,180 L 1280,180 M 0,270 L 1280,270 M 0,360 L 1280,360 M 0,450 L 1280,450 M 0,540 L 1280,540 M 0,630 L 1280,630" />
+    <path d="M 160,0 L 160,720 M 320,0 L 320,720 M 480,0 L 480,720 M 640,0 L 640,720 M 800,0 L 800,720 M 960,0 L 960,720 M 1120,0 L 1120,720" />
+  </g>
+
+  <!-- Top App Navigation Bar -->
+  <rect x="40" y="40" width="1200" height="64" rx="14" fill="#131b2e" stroke="rgba(0, 242, 254, 0.25)" stroke-width="1.5" />
+  <circle cx="75" cy="72" r="14" fill="#00f2fe" />
+  <text x="75" y="77" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="bold" fill="#070a13" text-anchor="middle">II</text>
+  <text x="105" y="77" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" fill="#f8fafc">Industrial Inventory &amp; Asset OS</text>
+  
+  <rect x="940" y="54" width="130" height="36" rx="18" fill="rgba(0, 242, 254, 0.12)" stroke="rgba(0, 242, 254, 0.4)" stroke-width="1" />
+  <circle cx="958" cy="72" r="4" fill="#00f2fe" filter="url(#glow-inv)" />
+  <text x="972" y="77" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600" fill="#00f2fe">TELEMETRY ON</text>
+  
+  <rect x="1090" y="54" width="130" height="36" rx="18" fill="#1b243b" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+  <text x="1155" y="77" font-family="'JetBrains Mono', monospace" font-size="12" fill="#94a3b8" text-anchor="middle">PLC: Active</text>
+
+  <!-- Left Card: Stock Analytics & Waveform -->
+  <g transform="translate(40, 130)">
+    <rect width="780" height="320" rx="16" fill="#10182b" stroke="rgba(0, 242, 254, 0.2)" stroke-width="1.5" />
+    <text x="32" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="600" fill="#f8fafc">Warehouse Stock Flow &amp; Replenishment Rate</text>
+    <text x="32" y="68" font-family="'JetBrains Mono', monospace" font-size="12" fill="#64748b">Batch Turnover Metric (Past 24H)</text>
+
+    <!-- Graph Axes -->
+    <line x1="32" y1="260" x2="748" y2="260" stroke="rgba(148, 163, 184, 0.15)" stroke-width="1" />
+    <line x1="32" y1="200" x2="748" y2="200" stroke="rgba(148, 163, 184, 0.08)" stroke-dasharray="4,4" />
+    <line x1="32" y1="140" x2="748" y2="140" stroke="rgba(148, 163, 184, 0.08)" stroke-dasharray="4,4" />
+
+    <!-- Area Fill -->
+    <path d="M 32,260 L 32,210 Q 120,180 200,210 T 380,150 T 560,110 T 748,80 L 748,260 Z" fill="url(#cyan-glow-subtle)" />
+    <!-- Glowing Line Curve -->
+    <path d="M 32,210 Q 120,180 200,210 T 380,150 T 560,110 T 748,80" fill="none" stroke="url(#cyan-glow-inv)" stroke-width="3.5" filter="url(#glow-inv)" />
+
+    <!-- Data Nodes -->
+    <circle cx="200" cy="210" r="5" fill="#00f2fe" stroke="#10182b" stroke-width="2" />
+    <circle cx="380" cy="150" r="5" fill="#00f2fe" stroke="#10182b" stroke-width="2" />
+    <circle cx="560" cy="110" r="5" fill="#00f2fe" stroke="#10182b" stroke-width="2" />
+    <circle cx="748" cy="80" r="6" fill="#00f2fe" stroke="#ffffff" stroke-width="2" filter="url(#glow-inv)" />
+    
+    <rect x="670" y="44" width="78" height="28" rx="6" fill="rgba(0, 242, 254, 0.15)" stroke="#00f2fe" stroke-width="1" />
+    <text x="709" y="63" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" fill="#00f2fe" text-anchor="middle">+34.8%</text>
+  </g>
+
+  <!-- Right Card: Metric Gauges -->
+  <g transform="translate(845, 130)">
+    <rect width="395" height="320" rx="16" fill="#10182b" stroke="rgba(0, 242, 254, 0.2)" stroke-width="1.5" />
+    <text x="28" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="600" fill="#f8fafc">Asset Utilization</text>
+    
+    <!-- Circular progress ring -->
+    <circle cx="198" cy="150" r="65" fill="none" stroke="#1b243b" stroke-width="12" />
+    <circle cx="198" cy="150" r="65" fill="none" stroke="url(#cyan-glow-inv)" stroke-width="12" stroke-dasharray="408" stroke-dashoffset="75" stroke-linecap="round" filter="url(#glow-inv)" />
+    <text x="198" y="152" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="bold" fill="#f8fafc" text-anchor="middle">92.4%</text>
+    <text x="198" y="174" font-family="'JetBrains Mono', monospace" font-size="11" fill="#00f2fe" text-anchor="middle">OPTIMIZED</text>
+    
+    <rect x="28" y="245" width="160" height="48" rx="8" fill="#162035" stroke="rgba(255,255,255,0.06)" />
+    <text x="40" y="265" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94a3b8">Active Skus</text>
+    <text x="40" y="285" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="bold" fill="#f8fafc">14,290</text>
+
+    <rect x="207" y="245" width="160" height="48" rx="8" fill="#162035" stroke="rgba(255,255,255,0.06)" />
+    <text x="219" y="265" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94a3b8">Dispatches</text>
+    <text x="219" y="285" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="bold" fill="#00f2fe">432 Today</text>
+  </g>
+
+  <!-- Bottom Inventory Table Row Snippet -->
+  <g transform="translate(40, 475)">
+    <rect width="1200" height="205" rx="16" fill="#10182b" stroke="rgba(0, 242, 254, 0.18)" stroke-width="1.5" />
+    <text x="32" y="38" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="600" fill="#f8fafc">Real-Time Stock Audit Stream</text>
+    
+    <!-- Table Header -->
+    <rect x="32" y="55" width="1136" height="34" rx="6" fill="#162035" />
+    <text x="50" y="76" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748b">SKU / TAG</text>
+    <text x="280" y="76" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748b">DESCRIPTION</text>
+    <text x="560" y="76" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748b">ZONE</text>
+    <text x="750" y="76" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748b">QUANTITY</text>
+    <text x="960" y="76" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748b">STATUS</text>
+
+    <!-- Table Row 1 -->
+    <line x1="32" y1="135" x2="1168" y2="135" stroke="rgba(148,163,184,0.1)" stroke-width="1" />
+    <text x="50" y="118" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600" fill="#00f2fe">SKU-IND-9021</text>
+    <text x="280" y="118" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" fill="#cbd5e1">Hydraulic Actuator Solenoid Valve</text>
+    <text x="560" y="118" font-family="'JetBrains Mono', monospace" font-size="13" fill="#94a3b8">Rack 4-B</text>
+    <text x="750" y="118" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" fill="#f8fafc">1,420 Units</text>
+    <rect x="960" y="103" width="96" height="22" rx="11" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.4)" />
+    <text x="1008" y="118" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" fill="#10b981" text-anchor="middle">OPTIMAL</text>
+
+    <!-- Table Row 2 -->
+    <text x="50" y="175" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600" fill="#00f2fe">SKU-PLC-4810</text>
+    <text x="280" y="175" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" fill="#cbd5e1">Siemens S7-1200 Programmable Logic Module</text>
+    <text x="560" y="175" font-family="'JetBrains Mono', monospace" font-size="13" fill="#94a3b8">Vault E-1</text>
+    <text x="750" y="175" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" fill="#f8fafc">64 Units</text>
+    <rect x="960" y="160" width="108" height="22" rx="11" fill="rgba(245, 158, 11, 0.15)" stroke="rgba(245, 158, 11, 0.4)" />
+    <text x="1014" y="175" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" fill="#f59e0b" text-anchor="middle">REORDER DUE</text>
+  </g>
+</svg>

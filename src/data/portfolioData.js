@@ -35,47 +35,181 @@ export const navLinks = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
-  { id: "education", label: "Education" },
   { id: "contact", label: "Contact" },
 ];
 
 export const aboutData = {
   title: "ABOUT ME",
-  headline: "Engineering Mindset & Quality-Driven Delivery",
-  intro:
-    "Industrial Information Technology undergraduate focused on Software Development and Quality Assurance (QA). Passionate about building reliable web applications and applying disciplined software testing methodologies.",
-  bullets: [
-    "BSc (Hons) in Industrial IT - Uva Wellassa University",
-    "Web Application Development (Clean Code)",
-    "QA Testing & API Validation"
+  headline: "Software Developer & QA Engineer",
+  institution: "Uva Wellassa University of Sri Lanka",
+  degree: "BSc (Hons) in Industrial Information Technology",
+  avatarImage: "/profile.png",
+  paragraphs: [
+    "Hello, I'm Chamal Lakshan, a software developer and QA engineer from Sri Lanka with a strong passion for modern web applications, test automation, and robust system architecture.",
+    "I focus on building dependable digital solutions—from crafting responsive React interfaces and clean RESTful APIs to executing structured QA test suites with automated assertions and defect tracking.",
+    "My academic foundation in Industrial Information Technology brings an engineering discipline to software development, ensuring scalability, performance, and process awareness across every project."
   ],
-  pillars: [
+  highlights: [
     {
-      id: "software-dev",
-      title: "Software Development",
-      description: "Building responsive front-ends and clean backend services.",
+      id: "fullstack",
+      title: "Full-Stack Development",
+      description: "React, Node.js, Express, Tailwind CSS",
       icon: "code"
     },
     {
-      id: "quality-assurance",
-      title: "Quality Assurance (QA)",
-      description: "Designing test cases, API testing, and defect tracking.",
+      id: "qa-testing",
+      title: "QA & Automated Testing",
+      description: "Selenium, Postman API, STLC & Bug Triage",
       icon: "shieldCheck"
     },
     {
-      id: "industrial-it",
-      title: "Industrial IT Mindset",
-      description: "Applying process awareness and system analysis to software.",
-      icon: "layers"
+      id: "databases",
+      title: "Database Architecture",
+      description: "PostgreSQL, MySQL, Schema Normalization",
+      icon: "database"
     },
     {
-      id: "analytical-problem-solving",
-      title: "Analytical Problem Solving",
-      description: "Breaking down complex requirements into testable code.",
-      icon: "terminal"
+      id: "industrial-systems",
+      title: "Industrial IT Mindset",
+      description: "Systems Analysis, Process Optimization & Reliability",
+      icon: "layers"
     }
+  ],
+  techStrip: [
+    "React",
+    "JavaScript",
+    "Node.js",
+    "PostgreSQL",
+    "MySQL",
+    "Postman",
+    "Selenium",
+    "Tailwind CSS",
+    "Git",
+    "Python",
+    "Java"
   ]
 };
+
+export const experienceData = [
+  {
+    id: "smart-plate-lead",
+    role: "Full-Stack Developer & Project Lead",
+    organization: "Smart Plate Platform (UWU)",
+    period: "2024 — Present",
+    badge: "Active Project",
+    responsibilities: [
+      "Architected full-stack web ordering system using React, Node.js, and PostgreSQL",
+      "Engineered real-time order queue pipeline with dynamic status updates",
+      "Implemented responsive checkout interface with client-side form validation"
+    ],
+    skillsGained: [
+      "React.js",
+      "Node.js",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "RESTful APIs",
+      "System Design"
+    ]
+  },
+  {
+    id: "qa-engineering",
+    role: "QA & Automated Testing Practitioner",
+    organization: "Academic Quality Engineering",
+    period: "2024 — Present",
+    badge: "Ongoing Practice",
+    responsibilities: [
+      "Designed and executed end-to-end test cases, defect matrices, and test plans",
+      "Formulated automated API verification collections in Postman with schema assertions",
+      "Conducted regression testing, edge case inspection, and bug lifecycle triage"
+    ],
+    skillsGained: [
+      "Postman API Testing",
+      "Test Case Design",
+      "Bug Life Cycle (STLC)",
+      "Selenium Basics",
+      "API Assertions"
+    ]
+  },
+  {
+    id: "uwu-undergraduate",
+    role: "Industrial IT Undergraduate",
+    organization: "Uva Wellassa University of Sri Lanka",
+    period: "2023 — Present",
+    badge: "Academic",
+    responsibilities: [
+      "Pursuing specialized curriculum integrating software engineering and industrial systems",
+      "Collaborated in team technical projects on system analysis, modeling, and prototyping",
+      "Applied process awareness and database normalization to real-world software scenarios"
+    ],
+    skillsGained: [
+      "Industrial Systems Mindset",
+      "Database Normalization",
+      "System Analysis & Design",
+      "Team Leadership"
+    ]
+  }
+];
+
+export const coreSkillsData = [
+  {
+    id: "qa-testing",
+    title: "QA & Quality Engineering",
+    icon: "shieldCheck",
+    points: [
+      "Manual & exploratory testing workflows",
+      "Test case design, traceability & execution (STLC)",
+      "REST API verification & assertion scripts with Postman",
+      "Defect logging, bug reproduction & severity triage"
+    ]
+  },
+  {
+    id: "fullstack-dev",
+    title: "Full-Stack Web Development",
+    icon: "code",
+    points: [
+      "Responsive UI engineering with React & Modern CSS",
+      "Component-based architecture & state management",
+      "RESTful API design with Node.js & Express",
+      "Client-server data validation & error handling"
+    ]
+  },
+  {
+    id: "databases-industrial",
+    title: "Databases & Industrial Systems",
+    icon: "database",
+    points: [
+      "Relational schema design (PostgreSQL & MySQL)",
+      "Database normalization & query optimization",
+      "Industrial systems analysis & process awareness",
+      "Telemetry metrics monitoring & dashboarding"
+    ]
+  }
+];
+
+export const programmingLanguages = [
+  { name: "Java", focus: "OOP Principles, Core Algorithms, Spring Boot Basics" },
+  { name: "JavaScript (ES6+)", focus: "Modern React, DOM, Async/Await & Logic" },
+  { name: "Python", focus: "Scripting, Automation, Data Basics" },
+  { name: "SQL", focus: "PostgreSQL, MySQL, Complex Queries & Schema Design" },
+  { name: "C", focus: "System Programming Foundations & Memory Concepts" }
+];
+
+export const techStackLogos = [
+  { name: "React", tag: "Frontend" },
+  { name: "JavaScript", tag: "Language" },
+  { name: "Node.js", tag: "Backend" },
+  { name: "PostgreSQL", tag: "Database" },
+  { name: "MySQL", tag: "Database" },
+  { name: "Postman", tag: "QA / API" },
+  { name: "Selenium", tag: "QA Automation" },
+  { name: "Tailwind CSS", tag: "Styling" },
+  { name: "Git", tag: "VCS" },
+  { name: "GitHub", tag: "Platform" },
+  { name: "Java", tag: "Language" },
+  { name: "Python", tag: "Language" },
+  { name: "HTML5", tag: "Markup" },
+  { name: "CSS3", tag: "Styling" }
+];
 
 export const skillCategories = [
   {
@@ -143,72 +277,19 @@ export const skillCategories = [
 
 export const projectsData = [
   {
-    id: "industrial-inventory-system",
-    title: "Industrial Inventory & Asset Tracking System",
-    category: "Software Development",
+    id: "smart-plate",
+    title: "Smart Plate - Food Ordering Platform",
+    category: "Full-Stack Web Application",
+    filterGroup: "Full-Stack Web Applications",
+    status: "Completed",
+    isPrivate: true,
+    thumbnail: "/projects/smart-plate.jpg",
     shortDescription:
-      "A modular web-based inventory management portal engineered for industrial operations to track warehouse stocks, log replenishment orders, and maintain audit records.",
-    keyPoints: [
-      "Designed dynamic dashboard with real-time stock alert thresholds",
-      "Structured relational schema with multi-tier category management",
-      "Implemented responsive front-end components and client-side form validation"
-    ],
-    techStack: ["React", "JavaScript", "MySQL", "REST API", "Modern CSS"],
-    githubUrl: "https://github.com/ChamalLak/inventory-tracking-system", // Placeholder link
-    demoUrl: null, // Placeholder: Live demo not deployed yet
-    isPlaceholder: true,
+      "A digital canteen ordering and queue management system designed to eliminate cafeteria wait times, featuring real-time kitchen order tracking and seamless mobile checkout.",
+    techStack: ["React", "Node.js", "Express", "PostgreSQL", "Tailwind CSS", "REST API"],
+    githubUrl: "https://github.com/ChamalLak",
+    demoUrl: null,
     featured: true
-  },
-  {
-    id: "api-qa-test-suite",
-    title: "REST API Verification & QA Automation Suite",
-    category: "Quality Assurance",
-    shortDescription:
-      "A structured API test collection and defect verification suite developed to validate backend services, status code assertions, response latencies, and payload integrity.",
-    keyPoints: [
-      "Crafted automated test scripts with schema assertions and status verifications",
-      "Documented edge cases, negative scenarios, and rate-limiting behaviors",
-      "Produced comprehensive defect reports with severity ratings and reproduction steps"
-    ],
-    techStack: ["Postman", "JavaScript", "REST APIs", "Test Case Design", "Markdown"],
-    githubUrl: "https://github.com/ChamalLak/api-qa-test-suite", // Placeholder link
-    demoUrl: null,
-    isPlaceholder: true,
-    featured: true
-  },
-  {
-    id: "campus-resource-portal",
-    title: "Academic & Campus Resource Management Portal",
-    category: "Software Development",
-    shortDescription:
-      "A student and faculty portal prototype designed to streamline access to university department timetables, lecture resources, and announcement notices.",
-    keyPoints: [
-      "Engineered responsive UI adhering to modern accessibility (a11y) standards",
-      "Interactive course schedule filtering by semester and department",
-      "Clean client-side state handling without heavy external library overhead"
-    ],
-    techStack: ["React", "JavaScript", "Vite", "CSS Custom Properties"],
-    githubUrl: "https://github.com/ChamalLak/campus-resource-portal", // Placeholder link
-    demoUrl: null,
-    isPlaceholder: true,
-    featured: false
-  },
-  {
-    id: "defect-tracking-dashboard",
-    title: "Defect Tracking & QA Workflow Dashboard",
-    category: "Quality Assurance",
-    shortDescription:
-      "A streamlined issue logging and bug lifecycle management interface modeled after agile QA processes to organize defects across open, in-progress, and verified states.",
-    keyPoints: [
-      "Structured bug severity matrix (Critical, Major, Minor, Cosmetic)",
-      "Interactive status progression pipeline matching industry STLC stages",
-      "Comprehensive defect detail view including environment and reproduction logs"
-    ],
-    techStack: ["React", "JavaScript", "Data Modeling", "CSS Grid"],
-    githubUrl: "https://github.com/ChamalLak/defect-tracking-dashboard", // Placeholder link
-    demoUrl: null,
-    isPlaceholder: true,
-    featured: false
   }
 ];
 

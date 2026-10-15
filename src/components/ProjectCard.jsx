@@ -1,101 +1,116 @@
-import React from 'react';
-import { GithubIcon, ExternalLinkIcon, CheckIcon, CodeIcon, ShieldCheckIcon } from './Icons';
+import React, { useState } from 'react';
+import { GithubIcon, ExternalLinkIcon, LockIcon } from './Icons';
 import './ProjectCard.css';
 
 export default function ProjectCard({ project }) {
   const {
     title,
     category,
+    status = 'Completed',
+    isPrivate = true,
+    thumbnail,
     shortDescription,
-    keyPoints,
-    techStack,
+    techStack = [],
     githubUrl,
-    demoUrl,
-    isPlaceholder
+    demoUrl
   } = project;
 
-  const isQA = category.toLowerCase().includes('quality');
+  const [showPrivateNotice, setShowPrivateNotice] = useState(false);
+  const isCompleted = status.toLowerCase() === 'completed';
+
+  const handleGithubClick = (e) => {
+    if (isPrivate) {
+      // If private repo, show a helpful non-intrusive notice explaining repository status
+      setShowPrivateNotice(true);
+      setTimeout(() => setShowPrivateNotice(false), 4500);
+    }
+  };
 
   return (
-    <article className="project-card glass-panel">
-      {/* Visual Header / Mockup Banner Placeholder */}
-      <div className="project-card-banner">
-        <div className="project-banner-pattern" aria-hidden="true">
-          <div className="project-banner-badge">
-            {isQA ? <ShieldCheckIcon size={28} /> : <CodeIcon size={28} />}
-          </div>
-          <span className="project-category-badge">{category}</span>
-        </div>
-        {isPlaceholder && (
-          <span className="project-placeholder-tag" title="Project architecture & code placeholder">
-            Featured Spec
+    <article className="project-card">
+      {/* Thumbnail Image Container with Status Badge Overlay */}
+      <div className="project-thumbnail-wrapper">
+        <img
+          src={thumbnail || '/projects/smart-plate.jpg'}
+          alt={`${title} mockup`}
+          className="project-thumbnail-img"
+          loading="lazy"
+        />
+
+        {/* Status Badge: Solid Green for Completed, Orange for In Progress (Matches Lakruwan's) */}
+        <span
+          className={`project-status-badge ${
+            isCompleted ? 'status-completed' : 'status-in-progress'
+          }`}
+        >
+          {status}
+        </span>
+
+        {/* Private Repo Indicator */}
+        {isPrivate && (
+          <span className="project-private-badge" title="Source code is in a private repository">
+            <LockIcon size={12} />
+            <span>Private Repo</span>
           </span>
         )}
       </div>
 
-      {/* Card Content Body */}
+      {/* Card Content Body - Clean, spacious, NO cluttered bullet points */}
       <div className="project-card-body">
+        {/* Category Label in Cyan Accent */}
+        <span className="project-category-label">{category}</span>
+
+        {/* Bold Prominent Title */}
         <h3 className="project-card-title">{title}</h3>
+
+        {/* Short 2-line Description */}
         <p className="project-card-description">{shortDescription}</p>
 
-        {/* Highlights */}
-        {keyPoints && keyPoints.length > 0 && (
-          <ul className="project-highlights-list">
-            {keyPoints.map((point, index) => (
-              <li key={index} className="project-highlight-item">
-                <CheckIcon size={14} className="highlight-check-icon" />
-                <span>{point}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {/* Tech Stack Tags */}
+        {/* Tech Stack Pills */}
         <div className="project-tech-tags" aria-label="Technologies used">
-          {techStack.map((tech, index) => (
-            <span key={index} className="tech-tag">
+          {techStack.map((tech, idx) => (
+            <span key={idx} className="tech-pill">
               {tech}
             </span>
           ))}
         </div>
-      </div>
 
-      {/* Card Footer Actions */}
-      <div className="project-card-footer">
-        {githubUrl ? (
-          <a
-            href={githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-action-link github-action"
-            aria-label={`View ${title} source on GitHub`}
-          >
-            <GithubIcon size={16} />
-            <span>Source Code</span>
-            <span className="action-hint">[GitHub]</span>
-          </a>
-        ) : (
-          <span className="project-action-disabled">
-            <GithubIcon size={16} /> Source Available on Request
-          </span>
-        )}
+        {/* Bottom Action: Full-width vibrant button matching Lakruwan's & Naveen's */}
+        <div className="project-card-actions">
+          {githubUrl && (
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleGithubClick}
+              className="project-full-btn btn-github-accent"
+              aria-label={`View ${title} on GitHub`}
+            >
+              <GithubIcon size={18} />
+              <span>GitHub</span>
+              {isPrivate && <LockIcon size={14} className="btn-lock-icon" />}
+            </a>
+          )}
 
-        {demoUrl ? (
-          <a
-            href={demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-action-link demo-action"
-            aria-label={`Open live demonstration of ${title}`}
-          >
-            <span>Live Demo</span>
-            <ExternalLinkIcon size={14} />
-          </a>
-        ) : (
-          <span className="project-action-disabled demo-pending">
-            <span>Live Preview</span>
-            <span className="action-hint">[Local / In Dev]</span>
-          </span>
+          {demoUrl && (
+            <a
+              href={demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-full-btn btn-demo-accent"
+              aria-label={`View live demo for ${title}`}
+            >
+              <ExternalLinkIcon size={16} />
+              <span>Live Demo</span>
+            </a>
+          )}
+        </div>
+
+        {/* Non-intrusive Private Repo Toast Notice */}
+        {showPrivateNotice && (
+          <div className="private-repo-toast" role="status">
+            <span>🔒 This repository is currently private on GitHub. Source code &amp; walkthrough are available upon request.</span>
+          </div>
         )}
       </div>
     </article>
