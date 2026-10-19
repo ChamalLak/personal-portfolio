@@ -62,3 +62,8 @@
     font-size: var(--font-size-base);
   }
 }
+
+[data-theme='light'] .section-subtitle {
+  color: #475569;
+}
+

@@ -317,3 +317,86 @@
     height: 200px;
   }
 }
+
+/* ==========================================================================
+   LIGHT MODE ADAPTATIONS
+   ========================================================================== */
+[data-theme='light'] .about-ambient-glow {
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.08) 0%, rgba(14, 165, 233, 0.03) 50%, transparent 70%);
+}
+
+[data-theme='light'] .about-avatar-halo {
+  background: radial-gradient(
+    circle at center,
+    rgba(2, 132, 199, 0.22) 0%,
+    rgba(14, 165, 233, 0.1) 50%,
+    transparent 72%
+  );
+}
+
+[data-theme='light'] .about-avatar-ring {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  border-color: rgba(2, 132, 199, 0.65);
+  box-shadow: 0 0 25px rgba(2, 132, 199, 0.22),
+              0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'] .about-avatar-wrapper:hover .about-avatar-ring {
+  border-color: #0284c7;
+  box-shadow: 0 0 35px rgba(2, 132, 199, 0.35),
+              0 14px 32px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme='light'] .about-floating-badge {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(2, 132, 199, 0.3);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'] .about-status-dot {
+  background: #0284c7;
+  box-shadow: 0 0 8px rgba(2, 132, 199, 0.6);
+}
+
+[data-theme='light'] .about-badge-text {
+  color: #334155;
+}
+
+[data-theme='light'] .about-main-title {
+  color: #0f172a;
+}
+
+[data-theme='light'] .about-subheadline {
+  color: #334155;
+}
+
+[data-theme='light'] .about-paragraph {
+  color: #334155;
+}
+
+[data-theme='light'] .about-highlight-card {
+  background: #ffffff;
+  border-color: rgba(2, 132, 199, 0.18);
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme='light'] .about-highlight-card:hover {
+  border-color: #0284c7;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08),
+              0 0 16px rgba(2, 132, 199, 0.15);
+}
+
+[data-theme='light'] .about-icon-box {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.25);
+  color: #0284c7;
+}
+
+[data-theme='light'] .highlight-card-title {
+  color: #0f172a;
+}
+
+[data-theme='light'] .highlight-card-sub {
+  color: #475569;
+}
+

@@ -210,3 +210,78 @@
   color: #00f2fe;
   background: rgba(0, 242, 254, 0.05);
 }
+
+/* ==========================================================================
+   LIGHT MODE ADAPTATIONS
+   ========================================================================== */
+[data-theme='light'] .form-label {
+  color: #334155;
+}
+
+[data-theme='light'] .required-star {
+  color: #0284c7;
+}
+
+[data-theme='light'] .form-input,
+[data-theme='light'] .form-textarea {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+[data-theme='light'] .form-input::placeholder,
+[data-theme='light'] .form-textarea::placeholder {
+  color: #94a3b8;
+}
+
+[data-theme='light'] .form-input:focus,
+[data-theme='light'] .form-textarea:focus {
+  background: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 0 14px rgba(2, 132, 199, 0.25);
+}
+
+[data-theme='light'] .contact-submit-btn {
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 18px rgba(2, 132, 199, 0.35);
+}
+
+[data-theme='light'] .contact-submit-btn:hover:not(:disabled) {
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.5);
+}
+
+[data-theme='light'] .success-title {
+  color: #0f172a;
+}
+
+[data-theme='light'] .success-desc {
+  color: #475569;
+}
+
+[data-theme='light'] .success-desc strong {
+  color: #0284c7;
+}
+
+[data-theme='light'] .success-btn-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(2, 132, 199, 0.3);
+}
+
+[data-theme='light'] .success-btn-primary:hover {
+  box-shadow: 0 0 20px rgba(2, 132, 199, 0.5);
+}
+
+[data-theme='light'] .success-btn-outline {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+[data-theme='light'] .success-btn-outline:hover {
+  border-color: #0284c7;
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.05);
+}
+

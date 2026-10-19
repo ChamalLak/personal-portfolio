@@ -608,3 +608,212 @@
     gap: 0.75rem;
   }
 }
+
+/* ==========================================================================
+   LIGHT MODE ADAPTATIONS
+   ========================================================================== */
+[data-theme='light'] .skills-ambient-glow {
+  background: radial-gradient(ellipse at center, rgba(2, 132, 199, 0.08) 0%, rgba(14, 165, 233, 0.02) 60%, transparent 80%);
+}
+
+/* Tab Switcher */
+[data-theme='light'] .skills-tab-switcher {
+  background: #f1f5f9;
+  border-color: rgba(2, 132, 199, 0.25);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme='light'] .skills-switcher-btn {
+  color: #475569;
+}
+
+[data-theme='light'] .skills-switcher-btn:hover {
+  color: #0f172a;
+}
+
+[data-theme='light'] .switcher-active {
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35) !important;
+}
+
+/* Sub-group Headers */
+[data-theme='light'] .sub-group-icon-badge {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.25);
+  color: #0284c7;
+  box-shadow: none;
+}
+
+[data-theme='light'] .sub-group-title {
+  color: #0f172a;
+}
+
+/* Core Technical Competencies */
+[data-theme='light'] .core-skill-card {
+  background: #ffffff;
+  border-color: rgba(2, 132, 199, 0.18);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme='light'] .core-skill-card:hover {
+  border-color: #0284c7;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1),
+              0 0 20px rgba(2, 132, 199, 0.15);
+}
+
+[data-theme='light'] .core-card-header {
+  border-bottom-color: rgba(2, 132, 199, 0.12);
+}
+
+[data-theme='light'] .core-card-icon {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.25);
+  color: #0284c7;
+}
+
+[data-theme='light'] .core-card-title {
+  color: #0f172a;
+}
+
+[data-theme='light'] .core-point-item {
+  color: #334155;
+}
+
+[data-theme='light'] .core-bullet-dot {
+  background: #0284c7;
+  box-shadow: 0 0 6px rgba(2, 132, 199, 0.4);
+}
+
+/* Programming Languages */
+[data-theme='light'] .language-card {
+  background: #ffffff;
+  border-color: rgba(2, 132, 199, 0.18);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme='light'] .language-card:hover {
+  border-color: #0284c7;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'] .language-name {
+  color: #0284c7;
+}
+
+[data-theme='light'] .language-focus {
+  color: #475569;
+}
+
+/* Frameworks & Toolchains */
+[data-theme='light'] .tech-logos-grid {
+  background: #ffffff;
+  border-color: rgba(2, 132, 199, 0.18);
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme='light'] .tech-logo-pill {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+[data-theme='light'] .tech-logo-pill:hover {
+  border-color: #0284c7;
+  background: rgba(2, 132, 199, 0.08);
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.18);
+}
+
+[data-theme='light'] .tech-logo-name {
+  color: #0f172a;
+}
+
+[data-theme='light'] .tech-logo-tag {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.25);
+  color: #0284c7;
+}
+
+/* Experience Tab */
+[data-theme='light'] .experience-card {
+  background: #ffffff;
+  border-color: rgba(2, 132, 199, 0.18);
+  box-shadow: 0 4px 22px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme='light'] .experience-card:hover {
+  border-color: #0284c7;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1),
+              0 0 20px rgba(2, 132, 199, 0.12);
+}
+
+[data-theme='light'] .exp-card-header {
+  border-bottom-color: rgba(2, 132, 199, 0.12);
+}
+
+[data-theme='light'] .exp-role-title {
+  color: #0f172a;
+}
+
+[data-theme='light'] .exp-category-badge {
+  background: rgba(2, 132, 199, 0.08);
+  color: #0284c7;
+  border-color: rgba(2, 132, 199, 0.25);
+}
+
+[data-theme='light'] .exp-organization {
+  color: #0284c7;
+}
+
+[data-theme='light'] .exp-location {
+  color: #64748b;
+}
+
+[data-theme='light'] .exp-period-pill {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.35);
+  color: #0284c7;
+  box-shadow: none;
+}
+
+[data-theme='light'] .period-current {
+  background: rgba(2, 132, 199, 0.15) !important;
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+  box-shadow: 0 0 12px rgba(2, 132, 199, 0.25) !important;
+}
+
+[data-theme='light'] .period-pulse-dot {
+  background-color: #0284c7;
+  box-shadow: 0 0 8px #0284c7;
+}
+
+[data-theme='light'] .exp-section-label {
+  color: #475569;
+}
+
+[data-theme='light'] .exp-resp-item {
+  color: #334155;
+}
+
+[data-theme='light'] .resp-check-icon {
+  color: #0284c7;
+}
+
+[data-theme='light'] .exp-skill-pill {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+[data-theme='light'] .experience-card:hover .exp-skill-pill {
+  border-color: rgba(2, 132, 199, 0.3);
+  color: #0f172a;
+}
+
+[data-theme='light'] .exp-skill-pill:hover {
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+  background: rgba(2, 132, 199, 0.08);
+}
+

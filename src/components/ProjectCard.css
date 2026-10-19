@@ -245,3 +245,81 @@
     transform: translateY(0);
   }
 }
+
+/* ==========================================================================
+   LIGHT MODE ADAPTATIONS
+   ========================================================================== */
+[data-theme='light'] .project-card {
+  background: #ffffff;
+  border-color: rgba(2, 132, 199, 0.18);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='light'] .project-card:hover {
+  border-color: #0284c7;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12),
+              0 0 25px rgba(2, 132, 199, 0.18);
+}
+
+[data-theme='light'] .project-thumbnail-wrapper {
+  background: #f1f5f9;
+  border-bottom-color: rgba(2, 132, 199, 0.12);
+}
+
+[data-theme='light'] .project-private-badge {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(15, 23, 42, 0.15);
+  color: #334155;
+}
+
+[data-theme='light'] .project-category-label {
+  color: #0284c7;
+}
+
+[data-theme='light'] .project-card-title {
+  color: #0f172a;
+}
+
+[data-theme='light'] .project-card-description {
+  color: #475569;
+}
+
+[data-theme='light'] .tech-pill {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+[data-theme='light'] .project-card:hover .tech-pill {
+  border-color: rgba(2, 132, 199, 0.3);
+  color: #0f172a;
+}
+
+[data-theme='light'] .btn-github-accent {
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.3);
+}
+
+[data-theme='light'] .btn-github-accent:hover {
+  box-shadow: 0 6px 22px rgba(2, 132, 199, 0.45);
+}
+
+[data-theme='light'] .btn-demo-accent {
+  background: #f8fafc;
+  border-color: rgba(2, 132, 199, 0.4);
+  color: #0284c7;
+}
+
+[data-theme='light'] .btn-demo-accent:hover {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: #0284c7;
+}
+
+[data-theme='light'] .private-repo-toast {
+  background: #ffffff;
+  border-color: rgba(2, 132, 199, 0.35);
+  color: #0284c7;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+

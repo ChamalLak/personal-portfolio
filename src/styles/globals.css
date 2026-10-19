@@ -202,3 +202,20 @@ code, kbd, samp, pre {
   border-radius: var(--radius-xl);
   transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-normal);
 }
+
+/* Reusable Electric Cyan Gradient Text */
+.text-cyan-gradient {
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+[data-theme='light'] .text-cyan-gradient {
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
