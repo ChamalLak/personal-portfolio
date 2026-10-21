@@ -23,52 +23,6 @@
 }
 
 /* ==========================================================================
-   FILTER TABS BAR
-   ========================================================================== */
-.projects-filter-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.65rem;
-  margin-bottom: 2.5rem;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 2;
-}
-
-.project-tab-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.55rem 1.25rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #94a3b8;
-  background: #0d1117;
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
-
-.project-tab-btn:hover {
-  background: #161b22;
-  color: #f8fafc;
-  border-color: rgba(0, 242, 254, 0.4);
-  transform: translateY(-2px);
-}
-
-.project-tab-active {
-  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%) !important;
-  color: #070a13 !important;
-  font-weight: 700 !important;
-  border-color: #00f2fe !important;
-  box-shadow: 0 0 20px rgba(0, 242, 254, 0.4) !important;
-  transform: translateY(-2px);
-}
-
-/* ==========================================================================
    PROJECTS GRID / SINGLE CARD SPOTLIGHT
    ========================================================================== */
 .projects-grid {
@@ -186,27 +140,6 @@
    ========================================================================== */
 [data-theme='light'] .projects-ambient-glow {
   background: radial-gradient(ellipse at center, rgba(2, 132, 199, 0.08) 0%, rgba(14, 165, 233, 0.02) 60%, transparent 80%);
-}
-
-[data-theme='light'] .project-tab-btn {
-  background: #ffffff;
-  border-color: #cbd5e1;
-  color: #475569;
-  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
-}
-
-[data-theme='light'] .project-tab-btn:hover {
-  background: #f8fafc;
-  color: #0f172a;
-  border-color: #0284c7;
-}
-
-[data-theme='light'] .project-tab-active {
-  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%) !important;
-  color: #ffffff !important;
-  font-weight: 700 !important;
-  border-color: #0284c7 !important;
-  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35) !important;
 }
 
 [data-theme='light'] .projects-footer-cta {

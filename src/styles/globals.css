@@ -170,21 +170,6 @@ code, kbd, samp, pre {
   }
 }
 
-/* Subtle Gradient Divider */
-.section-divider {
-  height: 1px;
-  width: 100%;
-  background: linear-gradient(
-    90deg, 
-    transparent 0%, 
-    var(--border-medium) 30%, 
-    var(--border-medium) 70%, 
-    transparent 100%
-  );
-  margin: 0;
-  border: none;
-}
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

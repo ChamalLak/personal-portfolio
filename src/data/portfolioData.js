@@ -20,7 +20,7 @@ export const personalData = {
   // Profile photo: set to "/profile.png" when placed in public/, or click "+ Add Your Photo" in the browser!
   avatarImage: "/profile.png",
 
-  // Resume status: set to "/cv.pdf" or "/resume.pdf"
+  // Resume status: set to "/cv.pdf"
   resumeUrl: "/cv.pdf",
   resumeAvailable: true,
   
@@ -194,70 +194,6 @@ export const techStackLogos = [
   { name: "CSS3", tag: "Styling" }
 ];
 
-export const skillCategories = [
-  {
-    id: "programming",
-    title: "Programming Languages",
-    description: "Foundational and object-oriented programming languages used in academic and personal projects.",
-    skills: [
-      { name: "Java", level: "Intermediate", tag: "OOP / Core" },
-      { name: "JavaScript (ES6+)", level: "Proficient", tag: "Web & Logic" },
-      { name: "Python", level: "Familiar", tag: "Scripting & Data" },
-      { name: "C", level: "Academic", tag: "System Foundations" },
-      { name: "SQL", level: "Proficient", tag: "Querying & DDL" }
-    ]
-  },
-  {
-    id: "web-development",
-    title: "Web Development",
-    description: "Modern client-side and full-stack web technologies for building interactive applications.",
-    skills: [
-      { name: "React", level: "Proficient", tag: "Components & Hooks" },
-      { name: "HTML5 & Semantic Markup", level: "Advanced", tag: "Structure & A11y" },
-      { name: "CSS3 / Modern Styling", level: "Advanced", tag: "Flexbox, Grid, Variables" },
-      { name: "RESTful APIs", level: "Proficient", tag: "Integration & Fetch" },
-      { name: "Vite & Tooling", level: "Proficient", tag: "Bundling & HMR" },
-      { name: "Node.js Basics", level: "Familiar", tag: "Runtime Environment" }
-    ]
-  },
-  {
-    id: "quality-assurance",
-    title: "Quality Assurance & Testing",
-    description: "Testing methodologies, API verification, and defect lifecycle management.",
-    skills: [
-      { name: "Manual & Exploratory Testing", level: "Proficient", tag: "Functional Validation" },
-      { name: "Test Case Design & Execution", level: "Proficient", tag: "STLC" },
-      { name: "API Testing (Postman)", level: "Proficient", tag: "Endpoint & Assertion" },
-      { name: "Defect Life Cycle & Tracking", level: "Proficient", tag: "Bug Reporting" },
-      { name: "Smoke & Regression Testing", level: "Proficient", tag: "Release Health" },
-      { name: "QA Documentation", level: "Proficient", tag: "Test Plans & Matrices" }
-    ]
-  },
-  {
-    id: "databases",
-    title: "Databases & Data Modeling",
-    description: "Relational database design, schema normalization, and data persistence.",
-    skills: [
-      { name: "MySQL", level: "Proficient", tag: "Relational RDBMS" },
-      { name: "PostgreSQL", level: "Familiar", tag: "Relational RDBMS" },
-      { name: "MongoDB", level: "Familiar", tag: "NoSQL / Documents" },
-      { name: "Database Normalization", level: "Proficient", tag: "Schema Design" }
-    ]
-  },
-  {
-    id: "tools",
-    title: "Development Tools & Workflow",
-    description: "Essential productivity, version control, and collaboration software.",
-    skills: [
-      { name: "Git & GitHub", level: "Proficient", tag: "Version Control" },
-      { name: "VS Code", level: "Advanced", tag: "Code Editor" },
-      { name: "Postman", level: "Proficient", tag: "API Client" },
-      { name: "Jira / Trello Basics", level: "Familiar", tag: "Agile Task Tracking" },
-      { name: "Browser DevTools", level: "Proficient", tag: "Debugging & Audit" }
-    ]
-  }
-];
-
 export const projectsData = [
   {
     id: "personal-portfolio",
@@ -288,42 +224,6 @@ export const projectsData = [
     githubUrl: "https://github.com/ChamalLak",
     demoUrl: null,
     featured: true
-  }
-];
-
-export const educationData = [
-  {
-    id: "university",
-    degree: "BSc (Hons) in Industrial Information Technology",
-    institution: "Uva Wellassa University of Sri Lanka",
-    period: "Undergraduate (Present)",
-    badge: "Current Degree",
-    description:
-      "Specialized program integrating industrial engineering, information technology, and software development disciplines. Fosters systematic problem-solving and IT leadership for industrial and enterprise domains.",
-    modules: [
-      "Software Engineering",
-      "Database Management Systems (RDBMS)",
-      "Object-Oriented Programming (Java)",
-      "System Analysis & Design",
-      "Industrial Systems & Quality Management",
-      "Data Structures & Algorithms",
-      "Web Applications Development",
-      "Computer Networks"
-    ]
-  },
-  {
-    id: "secondary",
-    degree: "G.C.E. Advanced Level",
-    institution: "Secondary College [Placeholder: Add School Name]",
-    period: "Completed",
-    badge: "Secondary Education",
-    description:
-      "Completed secondary education with focused studies in Technology / Physical Science stream, providing solid mathematical and analytical foundations.",
-    modules: [
-      "Information & Communication Technology",
-      "Science for Technology / Physics",
-      "Engineering Technology / Mathematics"
-    ]
   }
 ];
 
