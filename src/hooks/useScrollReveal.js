@@ -24,25 +24,22 @@ export function useScrollReveal() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-revealed');
-            observer.unobserve(entry.target);
+          } else {
+            // Re-arm when element is scrolled out of viewport
+            // so animation plays again when scrolled back
+            entry.target.classList.remove('is-revealed');
           }
         });
       },
       {
-        threshold: 0.05,
-        rootMargin: '0px 0px 0px 0px'
+        threshold: 0.02,
+        rootMargin: '0px 0px 20px 0px'
       }
     );
 
     const observeNewElements = () => {
-      document.querySelectorAll('.reveal-on-scroll:not(.is-revealed)').forEach((el) => {
-        // If element is already in the viewport, reveal immediately
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          el.classList.add('is-revealed');
-        } else {
-          observer.observe(el);
-        }
+      document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+        observer.observe(el);
       });
     };
 

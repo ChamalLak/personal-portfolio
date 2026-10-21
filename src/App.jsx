@@ -25,13 +25,9 @@ export default function App() {
       {/* Main Content Sections */}
       <main id="main-content" tabIndex="-1">
         <Hero />
-        <hr className="section-divider" />
         <About />
-        <hr className="section-divider" />
         <Skills />
-        <hr className="section-divider" />
         <Projects />
-        <hr className="section-divider" />
         <Contact />
       </main>
 

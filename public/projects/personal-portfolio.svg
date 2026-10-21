@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bg-grad-port" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b14" />
+      <stop offset="45%" stop-color="#0a101d" />
+      <stop offset="100%" stop-color="#04070d" />
+    </linearGradient>
+
+    <linearGradient id="cyan-accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#4facfe" />
+    </linearGradient>
+
+    <radialGradient id="cyan-glow-mesh" cx="20%" cy="25%" r="50%">
+      <stop offset="0%" stop-color="rgba(0, 242, 254, 0.22)" />
+      <stop offset="60%" stop-color="rgba(79, 172, 254, 0.05)" />
+      <stop offset="100%" stop-color="transparent" />
+    </radialGradient>
+
+    <radialGradient id="indigo-glow-mesh" cx="80%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="rgba(56, 189, 248, 0.28)" />
+      <stop offset="50%" stop-color="rgba(99, 102, 241, 0.18)" />
+      <stop offset="100%" stop-color="transparent" />
+    </radialGradient>
+
+    <filter id="shadow-card" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.65" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1280" height="720" fill="url(#bg-grad-port)" />
+
+  <!-- Ambient Glow Effects -->
+  <circle cx="260" cy="220" r="320" fill="url(#cyan-glow-mesh)" filter="blur(40px)" />
+  <circle cx="980" cy="380" r="300" fill="url(#indigo-glow-mesh)" filter="blur(45px)" />
+
+  <!-- Browser Frame Header -->
+  <rect x="30" y="24" width="1220" height="42" rx="12" fill="#0f1523" stroke="rgba(148, 163, 184, 0.15)" stroke-width="1" />
+  
+  <!-- Window Controls -->
+  <circle cx="56" cy="45" r="6" fill="#ef4444" opacity="0.8" />
+  <circle cx="76" cy="45" r="6" fill="#f59e0b" opacity="0.8" />
+  <circle cx="96" cy="45" r="6" fill="#10b981" opacity="0.8" />
+
+  <!-- URL Bar -->
+  <rect x="130" y="32" width="620" height="26" rx="6" fill="#151d30" stroke="rgba(0, 242, 254, 0.2)" />
+  <circle cx="146" cy="45" r="3" fill="#10b981" />
+  <text x="160" y="49" font-family="'JetBrains Mono', monospace" font-size="12" fill="#94a3b8">https://chamallakshan.dev</text>
+
+  <!-- Website Content Container -->
+  <g transform="translate(30, 66)">
+    <!-- Main Window Surface -->
+    <rect width="1220" height="630" rx="0" fill="#070b14" opacity="0.9" />
+
+    <!-- Website Top Navbar -->
+    <rect x="0" y="0" width="1220" height="68" fill="rgba(10, 16, 29, 0.85)" stroke="rgba(0, 242, 254, 0.1)" stroke-width="1" />
+    
+    <!-- Signature Logo -->
+    <text x="50" y="43" font-family="'Plus Jakarta Sans', cursive, sans-serif" font-size="24" font-weight="800" font-style="italic" fill="#ffffff" letter-spacing="-0.02em">Chamal Lakshan</text>
+
+    <!-- Nav Items -->
+    <text x="440" y="40" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="600" fill="#94a3b8">About</text>
+    <text x="515" y="40" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="600" fill="#94a3b8">Skills</text>
+    <rect x="580" y="24" width="76" height="30" rx="15" fill="rgba(0, 242, 254, 0.12)" stroke="rgba(0, 242, 254, 0.3)" />
+    <text x="618" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#00f2fe" text-anchor="middle">Projects</text>
+    <text x="690" y="40" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="600" fill="#94a3b8">Contact</text>
+
+    <!-- Right Navbar CTA -->
+    <rect x="1060" y="22" width="110" height="34" rx="17" fill="transparent" stroke="rgba(0, 242, 254, 0.4)" stroke-width="1.5" />
+    <text x="1115" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#00f2fe" text-anchor="middle">Get in Touch</text>
+
+    <!-- ================= HERO SECTION SHOWCASE ================= -->
+    <g transform="translate(60, 110)">
+      <!-- Status Badge -->
+      <rect x="0" y="0" width="280" height="32" rx="16" fill="rgba(16, 185, 129, 0.1)" stroke="rgba(16, 185, 129, 0.35)" />
+      <circle cx="18" cy="16" r="4" fill="#10b981" />
+      <text x="32" y="21" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#94a3b8">Open to Software Dev &amp; QA</text>
+
+      <!-- Greeting -->
+      <text x="0" y="68" font-family="'JetBrains Mono', monospace" font-size="14" fill="#64748b" letter-spacing="0.05em">Hello, I'm</text>
+
+      <!-- Main Headline Name -->
+      <text x="0" y="128" font-family="'Plus Jakarta Sans', sans-serif" font-size="52" font-weight="800" fill="url(#cyan-accent-grad)" letter-spacing="-0.02em">Chamal Lakshan</text>
+
+      <!-- Role & University -->
+      <text x="0" y="172" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="700" fill="#f8fafc">Software Developer &amp; QA Engineer</text>
+      <text x="0" y="202" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="500" fill="#94a3b8">Industrial IT Undergraduate at Uva Wellassa University</text>
+
+      <!-- Short Summary -->
+      <text x="0" y="240" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" fill="#64748b" width="480">
+        <tspan x="0" dy="0">High-performance personal portfolio built with React &amp; Modern CSS design system.</tspan>
+        <tspan x="0" dy="22">Engineered with custom token architecture, fluid responsive layouts, and interactive QA showcase.</tspan>
+      </text>
+
+      <!-- CTAs -->
+      <g transform="translate(0, 290)">
+        <!-- Primary Button -->
+        <rect x="0" y="0" width="165" height="46" rx="23" fill="url(#cyan-accent-grad)" />
+        <text x="74" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" fill="#040914" text-anchor="middle">Explore Work</text>
+        <path d="M 125,23 L 138,23 M 133,18 L 138,23 L 133,28" stroke="#040914" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+        <!-- Outline Button -->
+        <rect x="180" y="0" width="140" height="46" rx="23" fill="transparent" stroke="rgba(148, 163, 184, 0.3)" />
+        <text x="250" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="600" fill="#cbd5e1" text-anchor="middle">Download CV</text>
+      </g>
+    </g>
+
+    <!-- Hero Right Illustration / Artwork -->
+    <g transform="translate(680, 85)">
+      <!-- Stylized Graphic Backdrop (Electric Cyan / Royal Blue Splash) -->
+      <path d="M 80,180 C 140,70 320,60 420,120 C 500,170 510,310 440,390 C 370,470 200,490 120,430 C 50,380 40,260 80,180 Z" fill="rgba(0, 242, 254, 0.16)" filter="blur(16px)" />
+      
+      <!-- Blue Paint Brush Energy Flares -->
+      <path d="M 50,220 Q 240,110 450,150 Q 420,290 470,360 Q 280,450 70,360 Z" fill="rgba(79, 172, 254, 0.28)" />
+      <path d="M 110,160 L 440,220 L 400,340 L 90,280 Z" fill="rgba(0, 242, 254, 0.35)" />
+
+      <!-- Minimalist Portrait Silhouette Card -->
+      <rect x="120" y="80" width="280" height="380" rx="24" fill="#0c121e" stroke="rgba(0, 242, 254, 0.4)" stroke-width="1.5" filter="url(#shadow-card)" />
+      
+      <!-- Inner Developer Code Snippet on Card -->
+      <rect x="140" y="105" width="240" height="150" rx="14" fill="#060910" stroke="rgba(0, 242, 254, 0.2)" />
+      <circle cx="160" cy="122" r="3" fill="#ef4444" />
+      <circle cx="172" cy="122" r="3" fill="#f59e0b" />
+      <circle cx="184" cy="122" r="3" fill="#10b981" />
+      <text x="160" y="152" font-family="'JetBrains Mono', monospace" font-size="11" fill="#00f2fe">&lt;ChamalLakshan /&gt;</text>
+      <text x="160" y="174" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94a3b8">role: "Software Dev &amp; QA"</text>
+      <text x="160" y="196" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94a3b8">stack: ["React", "CSS", "Vite"]</text>
+      <text x="160" y="218" font-family="'JetBrains Mono', monospace" font-size="10" fill="#10b981">status: "Available for Hires"</text>
+
+      <!-- Badge Overlay -->
+      <rect x="140" y="280" width="240" height="60" rx="14" fill="rgba(0, 242, 254, 0.08)" stroke="rgba(0, 242, 254, 0.3)" />
+      <text x="160" y="304" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ffffff">Responsive &amp; Accessible</text>
+      <text x="160" y="324" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94a3b8">Dark/Light Themes • Formspree</text>
+
+      <rect x="140" y="360" width="240" height="74" rx="14" fill="#111827" stroke="rgba(148, 163, 184, 0.2)" />
+      <text x="160" y="386" font-family="'JetBrains Mono', monospace" font-size="10" fill="#00f2fe">PERFORMANCE SCORE</text>
+      <text x="160" y="416" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="800" fill="#10b981">100% LIGHTHOUSE</text>
+    </g>
+  </g>
+</svg>

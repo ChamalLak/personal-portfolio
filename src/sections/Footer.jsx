@@ -38,10 +38,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Center: Inspirational Statement */}
-          <p className="footer-tagline">
-            Dedicated to software excellence, clean execution, and continuous learning.
-          </p>
 
           {/* Right: Quick Navigation Links + Back to Top Button */}
           <div className="footer-nav-group">

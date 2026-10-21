@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MailIcon, CheckIcon, SendIcon } from './Icons';
+import { CheckIcon, SendIcon } from './Icons';
 import './ContactForm.css';
 
 export default function ContactForm({ recipientEmail }) {
@@ -13,6 +13,10 @@ export default function ContactForm({ recipientEmail }) {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+
+  const FORMSPREE_ENDPOINT =
+    import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xgaojryj';
 
   const validate = () => {
     const errs = {};
@@ -37,9 +41,12 @@ export default function ContactForm({ recipientEmail }) {
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
+    if (submitError) {
+      setSubmitError(null);
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -48,23 +55,46 @@ export default function ContactForm({ recipientEmail }) {
     }
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    setSubmitError(null);
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await response.json().catch(() => ({}));
+        if (data.errors && data.errors.length > 0) {
+          setSubmitError(data.errors.map((err) => err.message).join(', '));
+        } else {
+          setSubmitError('Failed to send message. Please try again or reach out directly via email.');
+        }
+      }
+    } catch (err) {
+      setSubmitError('Network error. Please check your connection or send an email directly.');
+    } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
-    }, 600);
+    }
   };
 
   const handleReset = () => {
     setFormData({ name: '', email: '', subject: '', message: '' });
     setErrors({});
     setSubmitted(false);
+    setSubmitError(null);
   };
-
-  const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(
-    formData.subject || 'Portfolio Inquiry'
-  )}&body=${encodeURIComponent(
-    `From: ${formData.name} (${formData.email})\n\n${formData.message}`
-  )}`;
 
   if (submitted) {
     return (
@@ -72,22 +102,15 @@ export default function ContactForm({ recipientEmail }) {
         <div className="success-icon-wrap">
           <CheckIcon size={32} />
         </div>
-        <h3 className="success-title">Message Prepared!</h3>
+        <h3 className="success-title">Message Sent Successfully!</h3>
         <p className="success-desc">
-          Thank you, <strong>{formData.name}</strong>. Because this is a static client portfolio, you can launch your default email client with your note ready to send.
+          Thank you, <strong>{formData.name}</strong>! Your message has been sent directly to Chamal's inbox. I'll get back to you as soon as possible.
         </p>
         <div className="success-actions">
-          <a
-            href={mailtoUrl}
-            className="success-btn-primary"
-          >
-            <MailIcon size={16} />
-            <span>Open in Email App</span>
-          </a>
           <button
             type="button"
             onClick={handleReset}
-            className="success-btn-outline"
+            className="success-btn-primary"
           >
             Send Another Message
           </button>
@@ -177,13 +200,24 @@ export default function ContactForm({ recipientEmail }) {
         {errors.message && <span className="error-message">{errors.message}</span>}
       </div>
 
+      {submitError && (
+        <div className="contact-server-error" role="alert">
+          <p>{submitError}</p>
+          {recipientEmail && (
+            <p className="error-fallback-link">
+              Or email directly: <a href={`mailto:${recipientEmail}`}>{recipientEmail}</a>
+            </p>
+          )}
+        </div>
+      )}
+
       {/* Full-Width Send Message Button (Lakruwan & Naveen style) */}
       <button
         type="submit"
         className="contact-submit-btn"
         disabled={isSubmitting}
       >
-        <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+        <span>{isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
         <SendIcon size={18} />
       </button>
     </form>

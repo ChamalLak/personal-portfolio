@@ -58,19 +58,21 @@ export default function Skills() {
 
       <div className="container">
         {/* Section Header */}
-        <div className="skills-header-wrap reveal-on-scroll">
-          <SectionHeader
-            badge="EXPERTISE &amp; BACKGROUND"
-            title={
-              <>
-                Skills &amp; <span className="text-cyan-gradient">Experience</span>
-              </>
-            }
-            subtitle="Technical expertise, developer toolchains, and hands-on leadership &amp; academic experience."
-          />
+        <div className="skills-header-wrap">
+          <div className="reveal-on-scroll">
+            <SectionHeader
+              badge="EXPERTISE &amp; BACKGROUND"
+              title={
+                <>
+                  Skills &amp; <span className="text-cyan-gradient">Experience</span>
+                </>
+              }
+              subtitle="Technical expertise, developer toolchains, and hands-on leadership &amp; academic experience."
+            />
+          </div>
 
           {/* Interactive Dual-Mode Capsule Switcher (Lakruwan & Theekshana inspired) */}
-          <div className="skills-tab-switcher" role="tablist" aria-label="Skills and Experience Switcher">
+          <div className="skills-tab-switcher reveal-on-scroll delay-1" role="tablist" aria-label="Skills and Experience Switcher">
             <button
               type="button"
               role="tab"
@@ -102,7 +104,7 @@ export default function Skills() {
           <div className="skills-tab-content tab-fade-in" role="tabpanel" aria-label="Skills Overview">
             {/* Sub-Section 1: Core Technical Competencies */}
             <div className="skills-sub-group">
-              <div className="sub-group-header">
+              <div className="sub-group-header reveal-on-scroll">
                 <span className="sub-group-icon-badge" aria-hidden="true">
                   <ShieldCheckIcon size={18} />
                 </span>
@@ -110,8 +112,8 @@ export default function Skills() {
               </div>
 
               <div className="core-skills-grid">
-                {coreSkillsData.map((category) => (
-                  <div key={category.id} className="core-skill-card">
+                {coreSkillsData.map((category, idx) => (
+                  <div key={category.id} className={`core-skill-card reveal-on-scroll delay-${idx + 1}`}>
                     <div className="core-card-header">
                       <div className="core-card-icon" aria-hidden="true">
                         {getSubSectionIcon(category.icon)}
@@ -134,7 +136,7 @@ export default function Skills() {
 
             {/* Sub-Section 2: Programming Languages */}
             <div className="skills-sub-group">
-              <div className="sub-group-header">
+              <div className="sub-group-header reveal-on-scroll">
                 <span className="sub-group-icon-badge" aria-hidden="true">
                   <CodeIcon size={18} />
                 </span>
@@ -143,7 +145,7 @@ export default function Skills() {
 
               <div className="languages-grid">
                 {programmingLanguages.map((lang, idx) => (
-                  <div key={idx} className="language-card">
+                  <div key={idx} className={`language-card reveal-on-scroll delay-${(idx % 4) + 1}`}>
                     <div className="language-header">
                       <h4 className="language-name">{lang.name}</h4>
                     </div>
@@ -155,7 +157,7 @@ export default function Skills() {
 
             {/* Sub-Section 3: Frameworks, Tools & Technologies (Interactive Filter Strip) */}
             <div className="skills-sub-group">
-              <div className="sub-group-header sub-group-header-flex">
+              <div className="sub-group-header sub-group-header-flex reveal-on-scroll">
                 <div className="sub-group-title-wrap">
                   <span className="sub-group-icon-badge" aria-hidden="true">
                     <LayersIcon size={18} />
@@ -178,7 +180,7 @@ export default function Skills() {
                 </div>
               </div>
 
-              <div className="tech-logos-grid" aria-label="Frameworks and tools list">
+              <div className="tech-logos-grid reveal-on-scroll delay-1" aria-label="Frameworks and tools list">
                 {filteredTechLogos.map((tool, idx) => (
                   <div key={idx} className="tech-logo-pill">
                     <span className="tech-logo-name">{tool.name}</span>
@@ -196,8 +198,8 @@ export default function Skills() {
         {activeTab === 'experience' && (
           <div className="experience-tab-content tab-fade-in" role="tabpanel" aria-label="Professional Experience">
             <div className="experience-cards-list">
-              {experienceData.map((exp) => (
-                <div key={exp.id} className="experience-card">
+              {experienceData.map((exp, idx) => (
+                <div key={exp.id} className={`experience-card reveal-on-scroll delay-${(idx % 3) + 1}`}>
                   {/* Card Header: Role, Org, and Duration Pill */}
                   <div className="exp-card-header">
                     <div className="exp-role-group">

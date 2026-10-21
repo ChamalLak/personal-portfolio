@@ -260,6 +260,21 @@ export const skillCategories = [
 
 export const projectsData = [
   {
+    id: "personal-portfolio",
+    title: "Personal Developer & QA Portfolio",
+    category: "Frontend Development",
+    filterGroup: "Frontend Development",
+    status: "Completed",
+    isPrivate: false,
+    thumbnail: "/projects/personal-portfolio.svg",
+    shortDescription:
+      "A modern, high-performance personal developer portfolio built with React 19, Vite, and custom CSS design tokens. Features smooth recurring scroll reveal animations, dark/light theme switching, and live Formspree email integration.",
+    techStack: ["React 19", "Vite", "JavaScript (ES6+)", "Modern CSS", "Formspree API"],
+    githubUrl: "https://github.com/ChamalLak/personal-portfolio",
+    demoUrl: null,
+    featured: true
+  },
+  {
     id: "smart-plate",
     title: "Smart Plate - Food Ordering Platform",
     category: "Full-Stack Web Application",

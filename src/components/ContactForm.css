@@ -285,3 +285,44 @@
   background: rgba(2, 132, 199, 0.05);
 }
 
+/* Server / API Error Message */
+.contact-server-error {
+  padding: 0.9rem 1.1rem;
+  border-radius: 12px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.contact-server-error p {
+  margin: 0;
+}
+
+.error-fallback-link {
+  margin-top: 0.4rem !important;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.error-fallback-link a {
+  color: #00f2fe;
+  text-decoration: underline;
+}
+
+[data-theme='light'] .contact-server-error {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #b91c1c;
+}
+
+[data-theme='light'] .error-fallback-link {
+  color: #64748b;
+}
+
+[data-theme='light'] .error-fallback-link a {
+  color: #0284c7;
+}
+

@@ -14,6 +14,17 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Desktop Scale Tuning:
+   Standard desktop monitors use 100% default zoom.
+   Scaling root font-size to 17.6px (1.1x / 110%) ensures the entire website
+   fills standard 1080p desktop viewports generously with rich, bold proportions.
+*/
+@media (min-width: 1024px) {
+  html {
+    font-size: 17.6px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

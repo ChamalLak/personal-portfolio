@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SectionHeader from '../components/SectionHeader';
 import ProjectCard from '../components/ProjectCard';
 import { projectsData } from '../data/portfolioData';
@@ -6,17 +6,6 @@ import { GithubIcon, ExternalLinkIcon } from '../components/Icons';
 import './Projects.css';
 
 export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState('all');
-
-  // Compute available categories dynamically so no empty tabs exist
-  const uniqueCategories = Array.from(new Set(projectsData.map((p) => p.category)));
-  const showFilters = uniqueCategories.length > 1;
-
-  const filteredProjects =
-    activeFilter === 'all'
-      ? projectsData
-      : projectsData.filter((p) => p.category === activeFilter);
-
   return (
     <section id="projects" className="section-wrapper projects-section" aria-label="Featured Projects">
       {/* Background Subtle Ambient Cyan Glow */}
@@ -36,40 +25,13 @@ export default function Projects() {
           />
         </div>
 
-        {/* Dynamic Category Filter Bar (Only shown if multiple categories exist) */}
-        {showFilters && (
-          <div className="projects-filter-bar reveal-on-scroll delay-1" role="tablist" aria-label="Filter projects">
-            <button
-              type="button"
-              role="tab"
-              aria-selected={activeFilter === 'all'}
-              className={`project-tab-btn ${activeFilter === 'all' ? 'project-tab-active' : ''}`}
-              onClick={() => setActiveFilter('all')}
-            >
-              All Projects ({projectsData.length})
-            </button>
-            {uniqueCategories.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                role="tab"
-                aria-selected={activeFilter === cat}
-                className={`project-tab-btn ${activeFilter === cat ? 'project-tab-active' : ''}`}
-                onClick={() => setActiveFilter(cat)}
-              >
-                {cat} ({projectsData.filter((p) => p.category === cat).length})
-              </button>
-            ))}
-          </div>
-        )}
-
         {/* Project Grid / Showcase Container */}
         <div
-          className={`projects-grid reveal-on-scroll delay-1 ${filteredProjects.length === 1 ? 'projects-grid-single' : ''}`}
+          className={`projects-grid reveal-on-scroll delay-1 ${projectsData.length === 1 ? 'projects-grid-single' : ''}`}
           role="region"
           aria-label="Projects list"
         >
-          {filteredProjects.map((project) => (
+          {projectsData.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
